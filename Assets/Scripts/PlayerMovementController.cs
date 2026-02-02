@@ -17,6 +17,6 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector2 input = context.ReadValue<Vector2>();
         
-        _heldMovementInput = (int)input.x;
+        _heldMovementInput = Math.Sign(input.x);
     }
 }
