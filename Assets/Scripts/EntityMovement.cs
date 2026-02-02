@@ -21,10 +21,12 @@ public class EntityMovement : MonoBehaviour
 
     [field: Header("Vertical/Air Movement")] 
     
-    [Tooltip("The height achieved when the jump is fully held")]
-    [SerializeField] private float maxJumpHeight;
     [Tooltip("Spontaneous force applied when jumping")]
     [SerializeField] private float jumpForce;
+    [Tooltip("The height achieved when the jump is fully held")]
+    [SerializeField] private float maxJumpHeight;
+    [Tooltip("The time required to reach the max jump height while holding")]
+    [SerializeField] private float timeToReachMaxHeight;
     [Tooltip("The downwards force applied when in the air")]
     [SerializeField] private float gravity;
     
@@ -56,8 +58,6 @@ public class EntityMovement : MonoBehaviour
         
         int currentSignOfDirection = Math.Sign(rigidbody2D.linearVelocityX);
         bool changingDirection = signOfDirection != currentSignOfDirection && currentSignOfDirection != 0;
-
-        // signs motsattsa == kombinerad acc och dec
         
         if (signOfDirection != 0)
         {
@@ -70,5 +70,10 @@ public class EntityMovement : MonoBehaviour
         }
         
         rigidbody2D.linearVelocityX = Mathf.Clamp(newVelocityX, -MaxSpeed, MaxSpeed);
+    }
+
+    public void Jump()
+    {
+        
     }
 }
