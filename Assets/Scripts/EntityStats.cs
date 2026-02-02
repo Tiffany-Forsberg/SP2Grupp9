@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EntityStats : MonoBehaviour
 {
+    // TODO: Add tooltips
+    
     [field: Header("Damage and Attacks")]
     public float DamageMultiplier = 1.0f;
     public int FlatDamageIncrease = 0;
@@ -17,7 +19,9 @@ public class EntityStats : MonoBehaviour
     public float SpeedMultiplier = 1.0f;
     public float FlatSpeedIncrease = 0;
     public float AccelerationMultiplier = 1.0f;
+    public float FlatAccelerationIncrease = 0;
     public float DecelerationMultiplier = 1.0f;
+    public float FlatDecelerationIncrease = 0;
     
     [field: Header("Miscellaneous")]
     [Min(0)] public float CooldownMultiplier = 1.0f;
