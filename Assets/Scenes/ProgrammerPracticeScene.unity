@@ -739,6 +739,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: baseAirAcceleration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: baseAirDeceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: timeToReachMaxHeight
       value: 0.4
       objectReference: {fileID: 0}

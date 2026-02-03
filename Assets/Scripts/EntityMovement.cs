@@ -69,8 +69,11 @@ public class EntityMovement : MonoBehaviour
         _heightAchieved += _predictedVelocity*Time.fixedDeltaTime;
     }
 
-    public void HandleHorizontalMovement(int direction)
+    public void HandleHorizontalMovement(int direction, bool isGrounded = true)
     {
+        float usedAcceleration = isGrounded ? Acceleration : AirAcceleration;
+        float usedDeceleration = isGrounded ? Deceleration : AirDeceleration;
+        
         int signOfDirection = Math.Sign(direction);
 
         float newVelocityX;
@@ -80,12 +83,12 @@ public class EntityMovement : MonoBehaviour
         
         if (signOfDirection != 0)
         {
-            float acceleration = changingDirection ? Acceleration + Deceleration : Acceleration;
+            float acceleration = changingDirection ? usedAcceleration + usedDeceleration : usedAcceleration;
             newVelocityX = rigidbody2D.linearVelocityX + acceleration * Time.fixedDeltaTime * signOfDirection;
         }
         else
         {
-            newVelocityX = Mathf.MoveTowards(rigidbody2D.linearVelocityX, 0, Time.fixedDeltaTime * Deceleration);
+            newVelocityX = Mathf.MoveTowards(rigidbody2D.linearVelocityX, 0, Time.fixedDeltaTime * usedDeceleration);
         }
         
         rigidbody2D.linearVelocityX = Mathf.Clamp(newVelocityX, -MaxSpeed, MaxSpeed);
