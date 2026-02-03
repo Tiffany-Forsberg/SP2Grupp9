@@ -131,9 +131,6 @@ public class EntityMovement : MonoBehaviour
     public void JumpCancel()
     {
         _justJumped = false;
-        if (_heightAchieved >= maxJumpHeight && _justJumped)
-        {
-            if (!_hasFloat) StartCoroutine(AirHold());
-        }
+        if (!_hasFloat) StartCoroutine(AirHold());
     }
 }
