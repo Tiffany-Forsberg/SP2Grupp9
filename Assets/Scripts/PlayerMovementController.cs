@@ -8,26 +8,42 @@ public class PlayerMovementController : MonoBehaviour
     
     [SerializeField] private GroundCheck groundCheck;
 
-    private int _heldMovementInput;
+    private int _heldMovementDirection;
+    private bool _jumpInputHeld = false;
+    
 
     private void FixedUpdate()
     {
-        entityMovement.HandleHorizontalMovement(_heldMovementInput);
+        entityMovement.HandleHorizontalMovement(_heldMovementDirection);
+        if (_jumpInputHeld)
+        {
+            entityMovement.Jump(out bool hasReachedMaxHeight);
+            if (hasReachedMaxHeight)
+            {
+                _jumpInputHeld = false;
+                entityMovement.JumpCancel();
+            }
+        }
     }
 
     public void HandleMovementInput(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
         
-        _heldMovementInput = Math.Sign(input.x);
+        _heldMovementDirection = Math.Sign(input.x);
     }
 
     public void HandleJumpInput(InputAction.CallbackContext context)
     {
-        Debug.Log("I'm like hey what's up hello");
         if (groundCheck.CheckGrounded() && context.performed)
         {
-            entityMovement.Jump();
+            _jumpInputHeld = true;
+        }
+
+        if (context.canceled)
+        {
+            _jumpInputHeld = false;
+            entityMovement.JumpCancel();
         }
     }
 }

@@ -288,7 +288,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundNormalTolerance: 0.612
+  groundNormalTolerance: 0
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +595,18 @@ PrefabInstance:
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: jumpForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: maxJumpHeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: timeToReachMaxHeight
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5466205476778626920, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_LocalPosition.y

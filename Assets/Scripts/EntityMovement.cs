@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class EntityMovement : MonoBehaviour
@@ -21,14 +22,21 @@ public class EntityMovement : MonoBehaviour
 
     [field: Header("Vertical/Air Movement")] 
     
-    [Tooltip("Spontaneous force applied when jumping")]
-    [SerializeField] private float jumpForce;
+    // [Tooltip("Spontaneous force applied when jumping")]
+    // [SerializeField] private float jumpForce;
     [Tooltip("The height achieved when the jump is fully held")]
     [SerializeField] private float maxJumpHeight;
     [Tooltip("The time required to reach the max jump height while holding")]
     [SerializeField] private float timeToReachMaxHeight;
     [Tooltip("The downwards force applied when in the air")]
     [SerializeField] private float gravity;
+
+    [SerializeField] private float airHoldTime = 0.2f;
+    
+    private float _heightAchieved = 0;
+
+    private bool _justJumped = false;
+    private bool _hasFloat = false;
     
     [Tooltip("Base acceleration in the air before modifiers are applied. If 0, uses base acceleration instead")] 
     [SerializeField] private float baseAirAcceleration;
@@ -48,6 +56,11 @@ public class EntityMovement : MonoBehaviour
         {
             Debug.LogError($"Stats is not assigned in {name}", this);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        _heightAchieved += rigidbody2D.linearVelocityY*Time.fixedDeltaTime;
     }
 
     public void HandleHorizontalMovement(int direction)
@@ -74,6 +87,53 @@ public class EntityMovement : MonoBehaviour
 
     public void Jump()
     {
+        Jump(out bool _);
+    }
+    
+    public void Jump(out bool hasReachedMaxHeight)
+    {
+        if (!_justJumped)
+        {
+            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
+            // rigidbody2D.linearVelocityY = jumpForce;
+            _justJumped = true;
+            _hasFloat = false;
+            _heightAchieved = rigidbody2D.linearVelocityY*Time.fixedDeltaTime;
+        }
+        else
+        {
+            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
+            // rigidbody2D.linearVelocityY = jumpForce - (maxJumpHeight-jumpForce)/(timeToReachMaxHeight)*Time.fixedDeltaTime;
+        }
         
+        if (_heightAchieved >= maxJumpHeight)
+        {
+            Debug.Log("I'm on top of the world");
+            hasReachedMaxHeight = true;
+            StartCoroutine(AirHold());
+        }
+        else hasReachedMaxHeight = false;
+    }
+
+    private IEnumerator AirHold()
+    {
+        float timeRemaining = airHoldTime;
+        _hasFloat = true;
+
+        while (timeRemaining > 0)
+        {
+            rigidbody2D.linearVelocityY = 0;
+            timeRemaining -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    public void JumpCancel()
+    {
+        _justJumped = false;
+        if (_heightAchieved >= maxJumpHeight && _justJumped)
+        {
+            if (!_hasFloat) StartCoroutine(AirHold());
+        }
     }
 }
