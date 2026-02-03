@@ -37,6 +37,7 @@ public class EntityMovement : MonoBehaviour
 
     private bool _justJumped = false;
     private bool _hasFloat = false;
+    private float _predictedVelocity = 0;
     
     [Tooltip("Base acceleration in the air before modifiers are applied. If 0, uses base acceleration instead")] 
     [SerializeField] private float baseAirAcceleration;
@@ -58,9 +59,14 @@ public class EntityMovement : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        
+    }
+
     private void FixedUpdate()
     {
-        _heightAchieved += rigidbody2D.linearVelocityY*Time.fixedDeltaTime;
+        _heightAchieved += _predictedVelocity*Time.fixedDeltaTime;
     }
 
     public void HandleHorizontalMovement(int direction)
@@ -95,6 +101,7 @@ public class EntityMovement : MonoBehaviour
         if (!_justJumped)
         {
             rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
+            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
             // rigidbody2D.linearVelocityY = jumpForce;
             _justJumped = true;
             _hasFloat = false;
@@ -103,6 +110,7 @@ public class EntityMovement : MonoBehaviour
         else
         {
             rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
+            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
             // rigidbody2D.linearVelocityY = jumpForce - (maxJumpHeight-jumpForce)/(timeToReachMaxHeight)*Time.fixedDeltaTime;
         }
         
@@ -123,6 +131,7 @@ public class EntityMovement : MonoBehaviour
         while (timeRemaining > 0)
         {
             rigidbody2D.linearVelocityY = 0;
+            _predictedVelocity = 0;
             timeRemaining -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
@@ -131,6 +140,7 @@ public class EntityMovement : MonoBehaviour
     public void JumpCancel()
     {
         _justJumped = false;
+        _predictedVelocity = 0;
         if (!_hasFloat) StartCoroutine(AirHold());
     }
 }
