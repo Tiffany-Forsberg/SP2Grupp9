@@ -745,6 +745,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: minJumpHoldTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: baseAirAcceleration
       value: 3
       objectReference: {fileID: 0}
@@ -824,6 +828,10 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 501321311}
+    - target: {fileID: 7737361668433862654, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: inputBuffer
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -101,7 +101,7 @@ public class EntityMovement : MonoBehaviour
             rigidbody2D.linearVelocityY = jumpForce;
             timeSpent += Time.fixedDeltaTime;
 
-            if (!isJumping.Invoke())
+            if (timeSpent > minJumpHoldTime && !isJumping.Invoke())
             {
                 earlyRelease = true;
                 break;
