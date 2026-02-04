@@ -104,63 +104,10 @@ public class EntityMovementHKTet : MonoBehaviour
 
             if (!inputHeld.Invoke() && timeheld > minJumpHoldTime)
             {
-                rigidbody2D.linearVelocityY =
-                    Mathf.Max(-predictedVelocity, -jumpForce);
+                //rigidbody2D.linearVelocityY = Mathf.Max(-predictedVelocity, -jumpForce);
+                rigidbody2D.linearVelocityY = 0;
                 yield break;
             }
         }
     }
-
-    /*public void Jump()
-    {
-        Jump(out bool _);
-    }
-    
-    public void Jump(out bool hasReachedMaxHeight)
-    {
-        if (!_justJumped)
-        {
-            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
-            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
-            // rigidbody2D.linearVelocityY = jumpForce;
-            _justJumped = true;
-            _hasFloat = false;
-            _heightAchieved = rigidbody2D.linearVelocityY*Time.fixedDeltaTime;
-        }
-        else
-        {
-            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
-            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
-            // rigidbody2D.linearVelocityY = jumpForce - (maxJumpHeight-jumpForce)/(timeToReachMaxHeight)*Time.fixedDeltaTime;
-        }
-        
-        if (_heightAchieved >= maxJumpHeight)
-        {
-            Debug.Log("I'm on top of the world");
-            hasReachedMaxHeight = true;
-            StartCoroutine(AirHold());
-        }
-        else hasReachedMaxHeight = false;
-    }
-
-    private IEnumerator AirHold()
-    {
-        float timeRemaining = airHoldTime;
-        _hasFloat = true;
-
-        while (timeRemaining > 0)
-        {
-            rigidbody2D.linearVelocityY = 0;
-            _predictedVelocity = 0;
-            timeRemaining -= Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
-    }
-
-    public void JumpCancel()
-    {
-        _justJumped = false;
-        _predictedVelocity = 0;
-        if (!_hasFloat) StartCoroutine(AirHold());
-    }*/
 }
