@@ -15,15 +15,6 @@ public class PlayerMovementController : MonoBehaviour
     private void FixedUpdate()
     {
         entityMovement.HandleHorizontalMovement(_heldMovementDirection);
-        // if (_jumpInputHeld)
-        // {
-        //     entityMovement.Jump(out bool hasReachedMaxHeight);
-        //     if (hasReachedMaxHeight)
-        //     {
-        //         _jumpInputHeld = false;
-        //         entityMovement.JumpCancel();
-        //     }
-        // }
     }
 
     public void HandleMovementInput(InputAction.CallbackContext context)
@@ -35,7 +26,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void HandleJumpInput(InputAction.CallbackContext context)
     {
-        if (groundCheck.CheckGrounded() && context.performed)
+        if (groundCheck.IsGrounded() && context.performed)
         {
             _jumpInputHeld = true;
             entityMovement.Jump(() => _jumpInputHeld);

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using ImprovedTimers;
 using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
@@ -13,46 +14,50 @@ public class GroundCheck : MonoBehaviour
     
     [SerializeField] private LayerMask groundLayer;
 
-    [SerializeField, Range(0f, 1f)] private float groundNormalTolerance;
+    [SerializeField] private float coyoteTime;
+    private CountdownTimer _coyoteTimer;
 
-    private bool _onGround => _groundObjects.Count > 0;
+    private bool _isGrounded = false;
 
-    private List<GameObject> _groundObjects;
-   
-
-    private void Awake()
+    void Start()
     {
-        _groundObjects = new List<GameObject>();
+        _coyoteTimer = new CountdownTimer(coyoteTime);
+        _coyoteTimer.OnTimerStop += () => _isGrounded = false;
     }
-
+    
     void FixedUpdate()
     {
-        // TODO: REPLACE WITH COYOTE TIMER LOGIC
         if (CheckGrounded())
         {
+            _isGrounded = true;
+            if (_coyoteTimer.IsRunning) ResetCoyoteTimer();
             Debug.Log("Ground Check: TRUE");
         }
         else
         {
+            if (_isGrounded && !_coyoteTimer.IsRunning) _coyoteTimer.Start();
             Debug.Log("Ground Check: FALSE");
         }
     }    
-    public bool CheckGrounded()
+    public bool IsGrounded()
     {
-        if (!useRayCast) 
-        {
-            return _onGround;
-        }
-        else
-        {
-            if (Physics2D.BoxCast(transform.position, groundCastSize, 0, -transform.up, castDistance, groundLayer))
-            {
-                return true;
-            }
+        return _isGrounded;
+    }
 
-            return false;
+    private bool CheckGrounded()
+    {
+        if (Physics2D.BoxCast(transform.position, groundCastSize, 0, -transform.up, castDistance, groundLayer))
+        {
+            return true;
         }
 
+        return false;
+    }
+
+    void ResetCoyoteTimer()
+    {
+        _coyoteTimer.Pause();
+        _coyoteTimer.Reset();
     }
     
     // Draw the BoxCast as a gizmo to show where it currently is testing. Click the Gizmos button to see this
@@ -61,35 +66,5 @@ public class GroundCheck : MonoBehaviour
         Gizmos.color = Color.red;
 
         Gizmos.DrawWireCube(transform.position-transform.up*castDistance, groundCastSize);
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if(((1<<other.gameObject.layer) & groundLayer) != 0)
-        {
-            Vector2 averageGroundNormal = new Vector2();
-
-            for (int i = 0; i < other.contactCount; i++)
-            {
-                averageGroundNormal += other.contacts[i].normal;
-            }
-        
-            averageGroundNormal /= other.contactCount;
-        
-            averageGroundNormal.Normalize();
-
-            if (averageGroundNormal.y >= groundNormalTolerance)
-            {
-                _groundObjects.Add(other.gameObject);
-            }
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (_groundObjects.Contains(other.gameObject))
-        {
-            _groundObjects.Remove(other.gameObject);
-        }
     }
 }

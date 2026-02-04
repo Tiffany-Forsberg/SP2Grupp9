@@ -26,7 +26,7 @@ public class PlayerMovementControllerHKTet : MonoBehaviour
 
     public void HandleJumpInput(InputAction.CallbackContext context)
     {
-        if (groundCheck.CheckGrounded() && context.started)
+        if (groundCheck.IsGrounded() && context.started)
         {
             _jumpInputHeld = true;
             StartCoroutine(entityMovement.Jump(() => _jumpInputHeld));

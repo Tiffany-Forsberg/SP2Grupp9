@@ -290,7 +290,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  groundNormalTolerance: 0
+  coyoteTime: 0.05
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +760,14 @@ PrefabInstance:
       propertyPath: timeToReachMaxHeight
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 5058434829624851813, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: FlatSpeedIncrease
+      value: 115.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237835202522095803, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_GravityScale
+      value: 3.13
+      objectReference: {fileID: 0}
     - target: {fileID: 5466205476778626920, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -770,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_Name
-      value: Player
+      value: "H\xE4xskaft"
       objectReference: {fileID: 0}
     - target: {fileID: 7396793000027080822, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_LocalPosition.x
