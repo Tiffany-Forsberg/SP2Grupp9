@@ -737,6 +737,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: jumpEndForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: maxJumpHeight
       value: 4
       objectReference: {fileID: 0}
@@ -747,6 +751,10 @@ PrefabInstance:
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: baseAirDeceleration
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: earlyReleaseGravity
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: timeToReachMaxHeight

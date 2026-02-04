@@ -22,22 +22,18 @@ public class EntityMovement : MonoBehaviour
 
     [field: Header("Vertical/Air Movement")] 
     
-    // [Tooltip("Spontaneous force applied when jumping")]
-    // [SerializeField] private float jumpForce;
     [Tooltip("The height achieved when the jump is fully held")]
     [SerializeField] private float maxJumpHeight;
     [Tooltip("The time required to reach the max jump height while holding")]
     [SerializeField] private float timeToReachMaxHeight;
-    [Tooltip("The downwards force applied when in the air")]
-    [SerializeField] private float gravity;
-
-    [SerializeField] private float airHoldTime = 0.2f;
+    [Tooltip("The minimum time the jump is held")]
+    [SerializeField] private float minJumpHoldTime;
+    [Tooltip("The additional downwards force added when releasing the jump early")]
+    [SerializeField] private float earlyReleaseGravity;
+    [Tooltip("The force applied to smooth out jump endings")]
+    [SerializeField] private float jumpEndForce;
     
-    private float _heightAchieved = 0;
-
-    private bool _justJumped = false;
-    private bool _hasFloat = false;
-    private float _predictedVelocity = 0;
+    private Coroutine _jumpCoroutine;
     
     [Tooltip("Base acceleration in the air before modifiers are applied. If 0, uses base acceleration instead")] 
     [SerializeField] private float baseAirAcceleration;
@@ -57,16 +53,6 @@ public class EntityMovement : MonoBehaviour
         {
             Debug.LogError($"Stats is not assigned in {name}", this);
         }
-    }
-
-    private void Awake()
-    {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        _heightAchieved += _predictedVelocity*Time.fixedDeltaTime;
     }
 
     public void HandleHorizontalMovement(int direction, bool isGrounded = true)
@@ -94,56 +80,34 @@ public class EntityMovement : MonoBehaviour
         rigidbody2D.linearVelocityX = Mathf.Clamp(newVelocityX, -MaxSpeed, MaxSpeed);
     }
 
-    public void Jump()
+    public void Jump(Func<bool> isJumping)
     {
-        Jump(out bool _);
-    }
-    
-    public void Jump(out bool hasReachedMaxHeight)
-    {
-        if (!_justJumped)
+        if (_jumpCoroutine != null)
         {
-            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
-            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
-            // rigidbody2D.linearVelocityY = jumpForce;
-            _justJumped = true;
-            _hasFloat = false;
-            _heightAchieved = rigidbody2D.linearVelocityY*Time.fixedDeltaTime;
+            StopCoroutine(_jumpCoroutine);
         }
-        else
+        _jumpCoroutine = StartCoroutine(JumpCoroutine(isJumping));
+    }
+
+    private IEnumerator JumpCoroutine(Func<bool> isJumping)
+    {
+        float jumpForce =  maxJumpHeight/timeToReachMaxHeight;
+        float timeSpent = 0;
+        bool earlyRelease = false;
+
+        while (timeSpent < timeToReachMaxHeight)
         {
-            rigidbody2D.linearVelocityY = maxJumpHeight/timeToReachMaxHeight;
-            _predictedVelocity = maxJumpHeight/timeToReachMaxHeight;
-            // rigidbody2D.linearVelocityY = jumpForce - (maxJumpHeight-jumpForce)/(timeToReachMaxHeight)*Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+            rigidbody2D.linearVelocityY = jumpForce;
+            timeSpent += Time.fixedDeltaTime;
+
+            if (!isJumping.Invoke())
+            {
+                earlyRelease = true;
+                break;
+            }
         }
         
-        if (_heightAchieved >= maxJumpHeight)
-        {
-            Debug.Log("I'm on top of the world");
-            hasReachedMaxHeight = true;
-            StartCoroutine(AirHold());
-        }
-        else hasReachedMaxHeight = false;
-    }
-
-    private IEnumerator AirHold()
-    {
-        float timeRemaining = airHoldTime;
-        _hasFloat = true;
-
-        while (timeRemaining > 0)
-        {
-            rigidbody2D.linearVelocityY = 0;
-            _predictedVelocity = 0;
-            timeRemaining -= Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate();
-        }
-    }
-
-    public void JumpCancel()
-    {
-        _justJumped = false;
-        _predictedVelocity = 0;
-        if (!_hasFloat) StartCoroutine(AirHold());
+        rigidbody2D.linearVelocityY = earlyRelease ? jumpEndForce + earlyReleaseGravity : jumpEndForce;
     }
 }
