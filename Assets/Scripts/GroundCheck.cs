@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
+    [Header("Settings for Raycast system")]
     [Tooltip("The size of the ground check box cast")]
     [SerializeField] private Vector2 groundCastSize;
+    [SerializeField] private float castDistance;
     
-    private Vector2 _groundDirection = Vector2.down;
+    [SerializeField] private bool useRayCast = false;
     
     [SerializeField] private LayerMask groundLayer;
 
@@ -16,6 +18,7 @@ public class GroundCheck : MonoBehaviour
     private bool _onGround => _groundObjects.Count > 0;
 
     private List<GameObject> _groundObjects;
+   
 
     private void Awake()
     {
@@ -36,10 +39,20 @@ public class GroundCheck : MonoBehaviour
     }    
     public bool CheckGrounded()
     {
-        return _onGround;
+        if (!useRayCast) 
+        {
+            return _onGround;
+        }
+        else
+        {
+            if (Physics2D.BoxCast(transform.position, groundCastSize, 0, -transform.up, castDistance, groundLayer))
+            {
+                return true;
+            }
 
-        /*RaycastHit2D hit = Physics2D.BoxCast(transform.position, groundCastSize, 0, _groundDirection, groundCastSize.y, groundLayer);
-        return hit;*/
+            return false;
+        }
+
     }
     
     // Draw the BoxCast as a gizmo to show where it currently is testing. Click the Gizmos button to see this
@@ -47,7 +60,7 @@ public class GroundCheck : MonoBehaviour
     {
         Gizmos.color = Color.red;
 
-        Gizmos.DrawWireCube(transform.position, groundCastSize);
+        Gizmos.DrawWireCube(transform.position-transform.up*castDistance, groundCastSize);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

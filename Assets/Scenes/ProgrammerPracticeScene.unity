@@ -284,7 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e1d2ea755c16e43910c67641abeaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCastSize: {x: 0, y: 0}
+  groundCastSize: {x: 1, y: 0.2}
+  castDistance: 0.5
+  useRayCast: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -421,7 +423,7 @@ GameObject:
   - component: {fileID: 1486024057}
   - component: {fileID: 1486024056}
   - component: {fileID: 1486024055}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformOfEvilAndScary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
