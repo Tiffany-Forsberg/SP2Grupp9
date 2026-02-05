@@ -12,19 +12,20 @@ public class PlayerMovementController : MonoBehaviour
     private bool _jumpInputHeld = false;
     
     [SerializeField] private float inputBuffer;
-    private float _inputTimer;
+    private float _inputTimer = -1f;
 
     private void FixedUpdate()
     {
         entityMovement.HandleHorizontalMovement(_heldMovementDirection);
-
-        _inputTimer = Mathf.Max(_inputTimer-Time.fixedDeltaTime, 0f);
         
-        if (groundCheck.IsGrounded() && _inputTimer > 0)
+        if (groundCheck.IsGrounded() && _inputTimer >= 0)
         {
             entityMovement.Jump(() => _jumpInputHeld || _inputTimer > 0f);
             _inputTimer = 0;
         }
+        
+        // Allow timer to be negative so that input buffer isn't required to be positive
+        _inputTimer = Mathf.Max(_inputTimer-Time.fixedDeltaTime, -1f);
     }
 
     public void HandleMovementInput(InputAction.CallbackContext context)
