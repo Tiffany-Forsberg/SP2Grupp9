@@ -31,12 +31,10 @@ public class GroundCheck : MonoBehaviour
         {
             _isGrounded = true;
             if (_coyoteTimer.IsRunning) ResetCoyoteTimer();
-            Debug.Log("Ground Check: TRUE");
         }
         else
         {
             if (_isGrounded && !_coyoteTimer.IsRunning) _coyoteTimer.Start();
-            Debug.Log("Ground Check: FALSE");
         }
     }    
     public bool IsGrounded()

@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 501321315}
-  entityEffectEventPort: {fileID: 0}
+  entityEffectEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
   baseMaxHealth: 4
   baseDefense: 0
   onReceiveHeal:
@@ -334,7 +334,19 @@ MonoBehaviour:
       m_Calls: []
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 501321325}
+        m_TargetAssemblyTypeName: PlayerDeath, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &501321319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,6 +382,18 @@ MonoBehaviour:
   onKnockback:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &501321325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501321303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a782b5f07c34872a1559e1dec72cb5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +664,7 @@ GameObject:
   - component: {fileID: 1691978203}
   - component: {fileID: 1691978202}
   - component: {fileID: 1691978208}
+  - component: {fileID: 1691978209}
   m_Layer: 0
   m_Name: Henrik STEN
   m_TagString: Untagged
@@ -765,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 1691978204}
-  entityEffectEventPort: {fileID: 0}
+  entityEffectEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
   baseMaxHealth: 5
   baseDefense: 0
   onReceiveHeal:
@@ -779,7 +804,19 @@ MonoBehaviour:
       m_Calls: []
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1691978209}
+        m_TargetAssemblyTypeName: EnemyDeath, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!212 &1691978206
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -869,6 +906,18 @@ MonoBehaviour:
   onKnockback:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1691978209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691978201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae0269769de4d02bcdbad5df1c808be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1798484788
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1220,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 501321320}
+    - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501321325}
     - targetCorrespondingSourceObject: {fileID: 764204740149780054, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7910841768215454229}
