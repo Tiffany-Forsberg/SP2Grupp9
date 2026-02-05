@@ -7,7 +7,7 @@ public class Damageable : MonoBehaviour
     [Tooltip("This entity's EntityStats component")]
     [SerializeField] private EntityStats stats;
     [Tooltip("The global DamageEventPort")]
-    [SerializeField] private HealthChangeEventPort healthChangeEventPort;
+    [SerializeField] private EntityEffectEventPort entityEffectEventPort;
     
     [Tooltip("The value used as the base max health for the entity")]
     [SerializeField] private int baseMaxHealth;
@@ -36,19 +36,19 @@ public class Damageable : MonoBehaviour
 
     private void OnEnable()
     {
-        healthChangeEventPort.DamageEvent += ReceiveDamage;
-        healthChangeEventPort.HealingEvent += ReceiveHealing;
+        entityEffectEventPort.DamageEvent += ReceiveDamage;
+        entityEffectEventPort.HealingEvent += ReceiveHealing;
     }
 
     private void OnDisable()
     {
-        healthChangeEventPort.DamageEvent -= ReceiveDamage;
-        healthChangeEventPort.HealingEvent -= ReceiveHealing;
+        entityEffectEventPort.DamageEvent -= ReceiveDamage;
+        entityEffectEventPort.HealingEvent -= ReceiveHealing;
     }
 
-    private void ReceiveDamage(Damageable target, int damage)
+    private void ReceiveDamage(GameObject target, int damage)
     {
-        if (this != target) return;
+        if (gameObject != target) return;
         int damageTaken = Math.Max(damage - Defense, 0);
         _currentHealth = Math.Max(_currentHealth - damageTaken, 0);
 
@@ -68,9 +68,9 @@ public class Damageable : MonoBehaviour
         }
     }
 
-    private void ReceiveHealing(Damageable target, int healing)
+    private void ReceiveHealing(GameObject target, int healing)
     {
-        if (this != target) return;
+        if (gameObject != target) return;
         _currentHealth = Math.Min(_currentHealth + healing, MaxHealth);
     }
 

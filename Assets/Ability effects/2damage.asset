@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9e01f0b6b83be419a83c43c8adcb71, type: 3}
+  m_Name: 2damage
+  m_EditorClassIdentifier: 
+  Name: AbilityData
+  Effects:
+  - rid: 5420340637567549634
+  animationClip: {fileID: 0}
+  CastTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5420340637567549634
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        healthChangeEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
+        Amount: 2
