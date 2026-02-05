@@ -291,6 +291,45 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   coyoteTime: 0.05
+--- !u!114 &501321315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5058434829624851813, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+  m_PrefabInstance: {fileID: 7910841768215454227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501321303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 361ad5098e8e8d34e85fb4bbc2e8621a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &501321318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501321303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76caaedc4b265274d91fa7cde0949653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 501321315}
+  healthChangeEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
+  baseMaxHealth: 4
+  baseDefense: 0
+  onReceiveHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageFullyBlocked:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +878,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 501321311}
+    - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501321318}
     - targetCorrespondingSourceObject: {fileID: 764204740149780054, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7910841768215454229}
