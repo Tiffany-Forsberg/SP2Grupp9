@@ -766,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5058434829624851813, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: FlatSpeedIncrease
-      value: 115.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5237835202522095803, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_GravityScale
@@ -830,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 501321311}
     - target: {fileID: 7737361668433862654, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: inputBuffer
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
