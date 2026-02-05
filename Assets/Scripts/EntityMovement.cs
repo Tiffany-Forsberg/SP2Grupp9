@@ -11,14 +11,14 @@ public class EntityMovement : MonoBehaviour
     
     [Tooltip("Base max speed before modifiers are applied")]
     [SerializeField] private float baseMaxSpeed;
-    private float MaxSpeed => (baseMaxSpeed + stats.FlatSpeedIncrease) * stats.SpeedMultiplier; 
+    private float MaxSpeed => (baseMaxSpeed + stats.SpeedFlatIncrease) * stats.SpeedMultiplier; 
 
     [Tooltip("Base acceleration before modifiers are applied")]
     [SerializeField] private float baseAcceleration;
-    private float Acceleration => (baseAcceleration + stats.FlatAccelerationIncrease) * stats.AccelerationMultiplier;
+    private float Acceleration => (baseAcceleration + stats.AccelerationFlatIncrease) * stats.AccelerationMultiplier;
     [Tooltip("Base deceleration before modifiers are applied")]
     [SerializeField] private float baseDeceleration;
-    private float Deceleration => (baseDeceleration + stats.FlatDecelerationIncrease) * stats.AccelerationMultiplier;
+    private float Deceleration => (baseDeceleration + stats.DecelerationFlatIncrease) * stats.DecelerationMultiplier;
 
     [field: Header("Vertical/Air Movement")] 
     
@@ -37,10 +37,10 @@ public class EntityMovement : MonoBehaviour
     
     [Tooltip("Base acceleration in the air before modifiers are applied. If 0, uses base acceleration instead")] 
     [SerializeField] private float baseAirAcceleration;
-    private float AirAcceleration => (baseAirAcceleration + stats.FlatAccelerationIncrease) * stats.AccelerationMultiplier;
+    private float AirAcceleration => (baseAirAcceleration + stats.AccelerationFlatIncrease) * stats.AccelerationMultiplier;
     [Tooltip("Base deceleration in the air before modifiers are applied. If 0, uses base acceleration instead")]
     [SerializeField] private float baseAirDeceleration;
-    private float AirDeceleration => (baseAirDeceleration + stats.FlatAccelerationIncrease) * stats.AccelerationMultiplier;
+    private float AirDeceleration => (baseAirDeceleration + stats.DecelerationFlatIncrease) * stats.DecelerationMultiplier;
 
     private void OnValidate()
     {
