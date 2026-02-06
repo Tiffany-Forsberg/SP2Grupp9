@@ -17,6 +17,6 @@ public class DisplayConfounds : MonoBehaviour
         if (!confoundCollider) return;
         
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireCube(confoundCollider.transform.position, confoundCollider.size);
+        Gizmos.DrawWireCube(confoundCollider.transform.position + (Vector3)confoundCollider.offset, confoundCollider.size);
     }
 }
