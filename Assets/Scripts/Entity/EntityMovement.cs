@@ -42,6 +42,9 @@ public class EntityMovement : MonoBehaviour
     [SerializeField] private float baseAirDeceleration;
     private float AirDeceleration => (baseAirDeceleration + stats.DecelerationFlatIncrease) * stats.DecelerationMultiplier;
 
+    [Tooltip("The maximum downwards velocity")]
+    [SerializeField] [Range(0.0f, 25.67f)] private float maxFallSpeed;
+
     private void OnValidate()
     {
         if (rigidbody2D == null)
@@ -53,6 +56,11 @@ public class EntityMovement : MonoBehaviour
         {
             Debug.LogError($"Stats is not assigned in {name}", this);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rigidbody2D.linearVelocityY = Mathf.Max(rigidbody2D.linearVelocityY, -maxFallSpeed);
     }
 
     public void HandleHorizontalMovement(int direction, bool isGrounded = true)
