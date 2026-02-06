@@ -477,7 +477,10 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
+  - Desktop/Master
   Banks:
+  - Desktop/Music-Bank
+  - Desktop/Sound-Bank
   - Music-Bank
   - Sound-Bank
   BanksToLoad: []
