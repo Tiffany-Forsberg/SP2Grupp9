@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 88924428}
   - component: {fileID: 88924427}
   - component: {fileID: 88924430}
+  - component: {fileID: 88924431}
   m_Layer: 0
   m_Name: Cinemachine2DCamera
   m_TagString: Untagged
@@ -150,19 +151,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CameraDistance: 25
+  CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.05, y: 0.3}
+      Size: {x: 0, y: 0.3}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 0, y: -0.3, z: 0}
   Damping: {x: 0, y: 0, z: 0}
   Lookahead:
     Enabled: 1
@@ -221,7 +222,7 @@ Transform:
   m_GameObject: {fileID: 88924426}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000071525574, y: 3.3499994, z: -25}
+  m_LocalPosition: {x: 0, y: 3.0499997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -247,6 +248,23 @@ MonoBehaviour:
     MaxWindowSize: 0
     Padding: 0.6
   m_LegacyMaxWindowSize: -2
+--- !u!114 &88924431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88924426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b776ac5c7c70d43a9727641396eea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidBody: {fileID: 501321313}
+  positionComposer: {fileID: 88924427}
+  upwardsDamping: 5
+  downwardsDamping: 3
+  defaultDamping: 3
 --- !u!1 &110509702
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +353,7 @@ Transform:
   m_GameObject: {fileID: 110509702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -25}
+  m_LocalPosition: {x: 0, y: 3.0499997, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -543,7 +561,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  coyoteTime: 0.05
+  coyoteTime: 2
 --- !u!50 &501321313 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5237835202522095803, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
@@ -652,6 +670,43 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7396793000027080822, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
   m_PrefabInstance: {fileID: 7910841768215454227}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &501321333
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501321303}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.09882036, y: 0.089840055}
+  m_Size: {x: 0.6055291, y: 0.8099296}
+  m_Direction: 0
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,18 +1392,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_ActionId
       value: 37901e83-8b47-4b90-a935-ae0b97b8fca7
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
+      value: f7a53514-a511-43ad-8711-3ebd38db6a42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_ActionName
       value: 'Player/Jump[/Keyboard/space]'
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: 'Player/Attack[/Keyboard/q,/XInputControllerWindows/buttonWest]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
@@ -1356,11 +1423,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 501321305}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 501321319}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
@@ -1368,11 +1447,23 @@ PrefabInstance:
       value: HandleJumpInput
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleBasicAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerMovementController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AbilityExecutor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
@@ -1416,12 +1507,20 @@ PrefabInstance:
       value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4431459550067200919, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_Size.x
+      value: 0.62267613
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431459550067200919, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_Size.y
-      value: 1.122746
+      value: 0.6214833
+      objectReference: {fileID: 0}
+    - target: {fileID: 4431459550067200919, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.09073466
       objectReference: {fileID: 0}
     - target: {fileID: 4431459550067200919, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_Offset.y
-      value: -0.061372995
+      value: -0.31200433
       objectReference: {fileID: 0}
     - target: {fileID: 4431459550067200919, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -1522,6 +1621,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 501321325}
+    - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501321333}
     - targetCorrespondingSourceObject: {fileID: 764204740149780054, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7910841768215454229}

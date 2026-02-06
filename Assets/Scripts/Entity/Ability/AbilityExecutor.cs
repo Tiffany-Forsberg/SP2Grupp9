@@ -32,6 +32,7 @@ public class AbilityExecutor : MonoBehaviour
 
     public void Execute(GameObject target)
     {
+        if (!target) return;
         foreach (var effect in ability.Effects)
         {
             effect.Execute(gameObject, target, stats);
