@@ -10,11 +10,13 @@ public class AttackBehaviour : MonoBehaviour
     
     public UnityEvent OnHit;
     public UnityEvent OnCollision;
+    public Vector2 AttackDirection;
 
-    public void Setup(List<AbilityExecutor> executors, LayerMask hostileLayers)
+    public void Setup(List<AbilityExecutor> executors, LayerMask hostileLayers, Vector2 attackDirection)
     {
         _executors = executors;
         _hostileLayers = hostileLayers;
+        AttackDirection = attackDirection;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

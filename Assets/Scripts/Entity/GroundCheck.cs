@@ -52,8 +52,8 @@ public class GroundCheck : MonoBehaviour
     {
         return _isGrounded;
     }
-
-    private bool CheckGrounded()
+    
+    public bool CheckGrounded()
     {
         if (Physics2D.BoxCast(transform.position, groundCastSize, 0, -transform.up, castDistance, groundLayer))
         {

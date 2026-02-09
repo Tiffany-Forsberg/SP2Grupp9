@@ -12,7 +12,6 @@ public class AbilityExecutor : MonoBehaviour
     [SerializeField] private EntityStats stats;
     
     [SerializeField] private AbilityData ability;
-    [SerializeField] private GameObject target;
 
     [SerializeField] private AnimatorController animatorController;
     private CountdownTimer _castTimer;
