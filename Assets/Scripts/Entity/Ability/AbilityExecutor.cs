@@ -24,10 +24,10 @@ public class AbilityExecutor : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Execute(target);
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     Execute(target);
+        // }
     }
 
     public void Execute(GameObject target)
@@ -39,11 +39,14 @@ public class AbilityExecutor : MonoBehaviour
         }
     }
 
+    public GameObject prefab;
+
     public void HandleBasicAttack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.started)
         {
-            Execute(target);
+            AttackBehaviour attack = Instantiate(prefab, transform.position, transform.rotation).GetComponent<AttackBehaviour>();
+            attack._executor = this;
         }
     }
 }

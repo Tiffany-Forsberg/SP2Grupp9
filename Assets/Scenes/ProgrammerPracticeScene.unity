@@ -508,7 +508,7 @@ Transform:
   m_GameObject: {fileID: 115947880}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 11.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -634,6 +634,7 @@ MonoBehaviour:
   ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
   target: {fileID: 1691978201}
   animatorController: {fileID: 0}
+  prefab: {fileID: 1722110818328487050, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
 --- !u!114 &501321320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionId
-      value: f7a53514-a511-43ad-8711-3ebd38db6a42
+      value: 9564984d-f155-45ae-9580-d62f919253eb
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_ActionName
@@ -1408,7 +1409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_ActionName
-      value: 'Player/Attack[/Keyboard/q,/XInputControllerWindows/buttonWest]'
+      value: 'Player/Attack[/Keyboard/q]'
       objectReference: {fileID: 0}
     - target: {fileID: 1092579979618016589, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.size
