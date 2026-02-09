@@ -18,7 +18,6 @@ public class GroundCheck : MonoBehaviour
     private CountdownTimer _coyoteTimer;
 
     private bool _isGrounded = false;
-    
 
     void Start()
     {

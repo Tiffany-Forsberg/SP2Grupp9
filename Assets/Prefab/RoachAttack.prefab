@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e7eb5423ec9d3468e89dc2ffad3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _executor: {fileID: 0}
+  _executors: []
   _hostileLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -176,6 +176,7 @@ MonoBehaviour:
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
+  AttackDirection: {x: 0, y: 0}
 --- !u!114 &3470250670706546838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,4 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f45e442edb4009b27f97bb7b3eda5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackBehaviour: {fileID: 5435730388782018083}
+  speed: 5
   rb: {fileID: 2279163639024683977}

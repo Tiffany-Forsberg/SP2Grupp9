@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class AttackPatterns : MonoBehaviour
 {
+    [SerializeField] private AttackBehaviour attackBehaviour;
+    [SerializeField] private float speed = 5f;
     public Rigidbody2D rb;
 
     void FixedUpdate()
     {
-        rb.linearVelocityX = 5;
+        rb.linearVelocity = attackBehaviour.AttackDirection * speed;
     }
 }
