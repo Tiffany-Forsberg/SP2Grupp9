@@ -5,6 +5,7 @@ using ImprovedTimers;
 using UnityEditor;
 using UnityEditor.Animations;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AbilityExecutor : MonoBehaviour
 {
@@ -46,7 +47,9 @@ public class AbilityExecutor : MonoBehaviour
         if (context.started)
         {
             AttackBehaviour attack = Instantiate(prefab, transform.position, transform.rotation).GetComponent<AttackBehaviour>();
-            attack._executor = this;
+            List<AbilityExecutor> executors = new List<AbilityExecutor>();
+            executors.Add(this);
+            attack._executors = executors;
         }
     }
 }
