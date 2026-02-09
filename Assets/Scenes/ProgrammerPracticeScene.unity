@@ -555,13 +555,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08e1d2ea755c16e43910c67641abeaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody2D: {fileID: 501321313}
   groundCastSize: {x: 1, y: 0.2}
   castDistance: 0.6
-  useRayCast: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 192
-  coyoteTime: 2
+  coyoteTime: 0.1
 --- !u!50 &501321313 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5237835202522095803, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
@@ -1479,6 +1479,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: maxFallSpeed
+      value: 25.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3844385547988613187, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: maxJumpHeight
       value: 4
       objectReference: {fileID: 0}
@@ -1600,8 +1604,12 @@ PrefabInstance:
       objectReference: {fileID: 501321311}
     - target: {fileID: 7737361668433862654, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
       propertyPath: inputBuffer
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 7737361668433862654, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}
+      propertyPath: rigidbody2D
+      value: 
+      objectReference: {fileID: 501321313}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
+    [SerializeField] private Rigidbody2D rigidbody2D;
+    
     [Header("Settings for Raycast system")]
     [Tooltip("The size of the ground check box cast")]
     [SerializeField] private Vector2 groundCastSize;
     [SerializeField] private float castDistance;
-    
-    [SerializeField] private bool useRayCast = false;
     
     [SerializeField] private LayerMask groundLayer;
 
@@ -18,6 +18,7 @@ public class GroundCheck : MonoBehaviour
     private CountdownTimer _coyoteTimer;
 
     private bool _isGrounded = false;
+    
 
     void Start()
     {
@@ -35,6 +36,16 @@ public class GroundCheck : MonoBehaviour
         else
         {
             if (_isGrounded && !_coyoteTimer.IsRunning) _coyoteTimer.Start();
+            if (rigidbody2D.linearVelocityY > 0)
+            {
+                _coyoteTimer.Reset();
+                _isGrounded = false;
+            }
+            // Kolla rigidbody hastighet
+            // Om uppåt:
+            //      Reset coyote timer
+            //      Sätt _isGrounded till false
+            // ??
         }
     }    
     public bool IsGrounded()
