@@ -6,6 +6,7 @@ using UnityEngine;
 public class GroundCheck : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private PlayerAnimationController playerAnimationController;
     
     [Header("Settings for Raycast system")]
     [Tooltip("The size of the ground check box cast")]
@@ -19,6 +20,8 @@ public class GroundCheck : MonoBehaviour
 
     private bool _isGrounded = false;
 
+    [SerializeField] private string groundedBool;
+
     void Start()
     {
         _coyoteTimer = new CountdownTimer(coyoteTime);
@@ -31,6 +34,8 @@ public class GroundCheck : MonoBehaviour
         {
             _isGrounded = true;
             if (_coyoteTimer.IsRunning) ResetCoyoteTimer();
+            
+            playerAnimationController.SetBoolTrue(groundedBool);
         }
         else
         {
@@ -45,6 +50,8 @@ public class GroundCheck : MonoBehaviour
             //      Reset coyote timer
             //      Sätt _isGrounded till false
             // ??
+            
+            playerAnimationController.SetBoolFalse(groundedBool);
         }
     }    
     public bool IsGrounded()
