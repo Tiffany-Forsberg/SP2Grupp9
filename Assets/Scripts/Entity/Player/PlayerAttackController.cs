@@ -26,6 +26,7 @@ public class PlayerAttackController : MonoBehaviour
 
     private Vector2 _direction = Vector2.right;
     private Vector2 _lastHorizontalDirection = Vector2.right;
+    private Vector2 lastHeldDirection = Vector2.right;
     private bool _downwardsHeld = false;
 
     private void Start()
@@ -37,28 +38,33 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (_direction == Vector2.down && groundCheck.CheckGrounded()) _direction = _lastHorizontalDirection;
         if (_downwardsHeld && !groundCheck.CheckGrounded()) _direction = Vector2.down;
+        UpdateAttackDirection();
     }
 
     public void GetAttackDirection(InputAction.CallbackContext context)
     {
-        Vector2 newDirection = context.ReadValue<Vector2>();
-        _downwardsHeld = false;
+        lastHeldDirection = context.ReadValue<Vector2>();
+    }
 
-        if (newDirection.y > 0)
+    private void UpdateAttackDirection()
+    {
+        _downwardsHeld = false;
+        
+        if (lastHeldDirection.y > 0)
         {
             _direction = Vector2.up;
         }
-        else if (newDirection.y < 0 && !groundCheck.CheckGrounded())
+        else if (lastHeldDirection.y < 0 && !groundCheck.CheckGrounded())
         {
             _direction = Vector2.down;
             _downwardsHeld = true;
         }
-        else if (newDirection.x > 0)
+        else if (lastHeldDirection.x > 0)
         {
             _direction = Vector2.right;
             _lastHorizontalDirection = Vector2.right;
         }
-        else if (newDirection.x < 0)
+        else if (lastHeldDirection.x < 0)
         {
             _direction = Vector2.left;
             _lastHorizontalDirection = Vector2.left;
