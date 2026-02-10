@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class AudioTrigger : MonoBehaviour
+/*
+ public class AudioTrigger : MonoBehaviour
 {
     public enum Action
     {
@@ -36,3 +37,4 @@ public class AudioTrigger : MonoBehaviour
         }
     }
 }
+*/
