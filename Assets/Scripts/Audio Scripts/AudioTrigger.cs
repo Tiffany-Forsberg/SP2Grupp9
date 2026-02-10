@@ -13,12 +13,12 @@ using UnityEngine;
     public struct AudioSettings
     {
         public Location location;
-        public Location action;
+        public Action action;
     }
 
     public AudioSettings[] triggerEnterSettings;
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -36,5 +36,4 @@ using UnityEngine;
             }
         }
     }
-    */
 }
