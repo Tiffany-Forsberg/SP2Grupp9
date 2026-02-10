@@ -38,17 +38,4 @@ public class AbilityExecutor : MonoBehaviour
             effect.Execute(gameObject, target, stats);
         }
     }
-
-    public GameObject prefab;
-
-    public void HandleBasicAttack(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            AttackBehaviour attack = Instantiate(prefab, transform.position, transform.rotation).GetComponent<AttackBehaviour>();
-            List<AbilityExecutor> executors = new List<AbilityExecutor>();
-            executors.Add(this);
-            attack._executors = executors;
-        }
-    }
 }

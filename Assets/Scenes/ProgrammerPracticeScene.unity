@@ -704,7 +704,6 @@ MonoBehaviour:
   stats: {fileID: 501321315}
   ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
   animatorController: {fileID: 0}
-  prefab: {fileID: 1722110818328487050, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
 --- !u!114 &501321320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -798,7 +797,8 @@ MonoBehaviour:
   executors:
   - {fileID: 501321319}
   attackPrefab: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
-  baseAttack1Cooldown: 1
+  baseTimeBetweenAttacks: 0.2
+  baseAttackSpeed: 0
 --- !u!1 &1364474306
 GameObject:
   m_ObjectHideFlags: 0
