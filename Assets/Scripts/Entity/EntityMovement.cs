@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntityMovement : MonoBehaviour
 {
@@ -44,6 +45,9 @@ public class EntityMovement : MonoBehaviour
 
     [Tooltip("The maximum downwards velocity")]
     [SerializeField] [Range(0.0f, 25.67f)] private float maxFallSpeed;
+    
+    [Tooltip("Invoked when jumping")]
+    [SerializeField] private UnityEvent onJump;
 
     private void OnValidate()
     {
@@ -99,6 +103,7 @@ public class EntityMovement : MonoBehaviour
 
     private IEnumerator JumpCoroutine(Func<bool> isJumping)
     {
+        onJump?.Invoke();
         float jumpForce =  maxJumpHeight/timeToReachMaxHeight;
         float timeSpent = 0;
         bool earlyRelease = false;
