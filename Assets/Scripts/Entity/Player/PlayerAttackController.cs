@@ -11,60 +11,59 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] private LayerMask hostileLayer;
     
     [Header("Attack 1")]
-    
     [SerializeField] private List<AbilityExecutor> executors;
-
     [SerializeField] private AttackBehaviour attackPrefab;
+    [SerializeField] private float baseTimeBetweenAttacks;
+    [SerializeField] private float baseAttackSpeed;
+    
+    private float AttackSpeed =>
+        (baseAttackSpeed - entityStats.AttackSpeedFlatIncrease) * entityStats.AttackSpeedMultiplier;
 
-    [SerializeField] private float baseAttack1Cooldown;
-
-
-    private float Attack1Cooldown =>
-        (baseAttack1Cooldown - entityStats.CooldownFlatDecrease) * entityStats.CooldownMultiplier;
-
+    private float TimeBetweenAttacks => Math.Max(baseTimeBetweenAttacks - AttackSpeed, 0);
+    
     private CountdownTimer _attack1Cooldown;
 
     private Vector2 _direction = Vector2.right;
     private Vector2 _lastHorizontalDirection = Vector2.right;
-    private Vector2 lastHeldDirection = Vector2.right;
+    private Vector2 _lastHeldDirection = Vector2.right;
     private bool _downwardsHeld = false;
 
     private void Start()
     {
-        _attack1Cooldown = new CountdownTimer(Attack1Cooldown);
+        _attack1Cooldown = new CountdownTimer(TimeBetweenAttacks);
     }
 
     private void Update()
     {
         if (_direction == Vector2.down && groundCheck.CheckGrounded()) _direction = _lastHorizontalDirection;
-        if (_downwardsHeld && !groundCheck.CheckGrounded()) _direction = Vector2.down;
+        //if (_downwardsHeld && !groundCheck.CheckGrounded()) _direction = Vector2.down;
         UpdateAttackDirection();
     }
 
     public void GetAttackDirection(InputAction.CallbackContext context)
     {
-        lastHeldDirection = context.ReadValue<Vector2>();
+        _lastHeldDirection = context.ReadValue<Vector2>();
     }
 
     private void UpdateAttackDirection()
     {
         _downwardsHeld = false;
         
-        if (lastHeldDirection.y > 0)
+        if (_lastHeldDirection.y > 0)
         {
             _direction = Vector2.up;
         }
-        else if (lastHeldDirection.y < 0 && !groundCheck.CheckGrounded())
+        else if (_lastHeldDirection.y < 0 && !groundCheck.CheckGrounded())
         {
             _direction = Vector2.down;
             _downwardsHeld = true;
         }
-        else if (lastHeldDirection.x > 0)
+        else if (_lastHeldDirection.x > 0)
         {
             _direction = Vector2.right;
             _lastHorizontalDirection = Vector2.right;
         }
-        else if (lastHeldDirection.x < 0)
+        else if (_lastHeldDirection.x < 0)
         {
             _direction = Vector2.left;
             _lastHorizontalDirection = Vector2.left;
@@ -79,9 +78,11 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (context.started && !_attack1Cooldown.IsRunning)
         {
-            AttackBehaviour attackBehaviour = Instantiate(attackPrefab, transform.position, transform.rotation);
+            AttackBehaviour attackBehaviour = Instantiate(attackPrefab, transform.position + (Vector3)_direction*2, transform.rotation, transform);
             attackBehaviour.Setup(executors, hostileLayer, _direction);
-            _attack1Cooldown.Reset();
+            attackBehaviour.transform.parent = transform;
+            _attack1Cooldown.Reset(TimeBetweenAttacks);
+            _attack1Cooldown.Start();
         }
     }
     
