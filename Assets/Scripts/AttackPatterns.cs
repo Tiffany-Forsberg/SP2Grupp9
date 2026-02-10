@@ -1,13 +1,31 @@
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
-public class AttackPatterns : MonoBehaviour
+[Serializable]
+public abstract class AttackPatterns
 {
-    [SerializeField] private AttackBehaviour attackBehaviour;
-    [SerializeField] private float speed = 5f;
-    public Rigidbody2D rb;
+    public abstract void Execute(Vector2 direction);
 
-    void FixedUpdate()
+}
+
+[Serializable]
+public class TemporaryAttack : AttackPatterns
+{
+    [SerializeField] private GameObject self;
+    [SerializeField] private float duration;
+
+    public override void Execute(Vector2 direction)
     {
-        rb.linearVelocity = attackBehaviour.AttackDirection * speed;
+        HandleLifetime();
+    }
+
+    private void HandleLifetime()
+    {
+        duration -= Time.fixedDeltaTime;
+        if (duration <= 0)
+        {
+            Object.DestroyImmediate(self);
+        }
     }
 }

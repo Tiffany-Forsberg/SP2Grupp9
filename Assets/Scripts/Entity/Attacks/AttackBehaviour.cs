@@ -4,19 +4,28 @@ using UnityEngine.Events;
 
 public class AttackBehaviour : MonoBehaviour
 {
-    // TODO: HIDE
-    public List<AbilityExecutor> _executors;
-    public LayerMask _hostileLayers;
+    private List<AbilityExecutor> _executors;
+    private LayerMask _hostileLayers;
+
+    [SerializeReference] private List<AttackPatterns> patterns;
     
     public UnityEvent OnHit;
     public UnityEvent OnCollision;
-    public Vector2 AttackDirection;
+    private Vector2 _attackDirection;
 
+    private void FixedUpdate()
+    {
+        foreach (AttackPatterns pattern in patterns)
+        {
+            pattern.Execute(_attackDirection);
+        }
+    }
+    
     public void Setup(List<AbilityExecutor> executors, LayerMask hostileLayers, Vector2 attackDirection)
     {
         _executors = executors;
         _hostileLayers = hostileLayers;
-        AttackDirection = attackDirection;
+        _attackDirection = attackDirection;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

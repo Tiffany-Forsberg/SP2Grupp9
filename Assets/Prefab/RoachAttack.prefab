@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 8089655294829808397}
   - component: {fileID: 2136260568918070625}
   - component: {fileID: 1714110262373021668}
-  - component: {fileID: 2279163639024683977}
   - component: {fileID: 5435730388782018083}
-  - component: {fileID: 3470250670706546838}
   m_Layer: 0
   m_Name: RoachAttack
   m_TagString: Untagged
@@ -31,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6097343, y: 2.0229774, z: -0.22678703}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.35, y: 3.35, z: 3.35}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 4cbf7ddfa02783d45b01cac9d59ac3f7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -127,33 +125,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!50 &2279163639024683977
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722110818328487050}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &5435730388782018083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,29 +137,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e7eb5423ec9d3468e89dc2ffad3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _executors: []
-  _hostileLayers:
-    serializedVersion: 2
-    m_Bits: 128
+  patterns:
+  - rid: 5420340772218601556
   OnHit:
     m_PersistentCalls:
       m_Calls: []
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
-  AttackDirection: {x: 0, y: 0}
---- !u!114 &3470250670706546838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722110818328487050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f45e442edb4009b27f97bb7b3eda5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackBehaviour: {fileID: 5435730388782018083}
-  speed: 5
-  rb: {fileID: 2279163639024683977}
+  references:
+    version: 2
+    RefIds:
+    - rid: 5420340772218601556
+      type: {class: TemporaryAttack, ns: , asm: Assembly-CSharp}
+      data:
+        self: {fileID: 1722110818328487050}
+        duration: 0.2
