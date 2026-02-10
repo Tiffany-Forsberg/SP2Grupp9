@@ -123,4 +123,25 @@ public class EntityMovement : MonoBehaviour
         
         rigidbody2D.linearVelocityY = earlyRelease ? jumpEndForce + earlyReleaseGravity : jumpEndForce;
     }
+
+    private Coroutine _stepCoroutine;
+    
+    public void HandleStep(float speed, Func<bool> isStepping)
+    {
+        if (_jumpCoroutine != null)
+        {
+            StopCoroutine(_jumpCoroutine);
+        }
+        _stepCoroutine = StartCoroutine(Step(speed, isStepping));
+    }
+
+    private IEnumerator Step(float speed, Func<bool> isStepping)
+    {
+        while (isStepping.Invoke())
+        {
+            rigidbody2D.linearVelocityX = speed;
+            yield return null;
+        }
+        rigidbody2D.linearVelocityX = 0;
+    }
 }
