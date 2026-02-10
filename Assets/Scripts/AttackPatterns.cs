@@ -6,7 +6,6 @@ using Object = UnityEngine.Object;
 public abstract class AttackPatterns
 {
     public abstract void Execute(Vector2 direction);
-
 }
 
 [Serializable]
