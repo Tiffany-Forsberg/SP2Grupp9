@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d7466201180bd4f9d5e2d637df8df9, type: 3}
+  m_Name: SeleneAudio
+  m_EditorClassIdentifier: 
+  footstepEventRef:
+    Guid:
+      Data1: -1187199475
+      Data2: 1318102949
+      Data3: 1617430672
+      Data4: -773516908
+    Path: event:/Sound/Player/Starting moves/Player Footsteps
+  clawAttackEventRef:
+    Guid:
+      Data1: 1451766177
+      Data2: 1330765460
+      Data3: -676955725
+      Data4: 191860790
+    Path: event:/Sound/Player/Starting moves/Player ClawAttack
+  jumpEventRef:
+    Guid:
+      Data1: 147899541
+      Data2: 1184197755
+      Data3: -106521966
+      Data4: 1996711657
+    Path: event:/Sound/Player/Starting moves/Player Jump
+  landEventRef:
+    Guid:
+      Data1: -1241549924
+      Data2: 1256519412
+      Data3: 196836283
+      Data4: -1366453061
+    Path: event:/Sound/Player/Starting moves/Player Landing
+  damageEventRef:
+    Guid:
+      Data1: -33094348
+      Data2: 1289137699
+      Data3: -1270119296
+      Data4: -724715903
+    Path: event:/Sound/Player/Player Take Damage

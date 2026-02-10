@@ -2,7 +2,7 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-[CreateAssetMenu(fileName = "CharacterAudio", menuName = "Scriptable Objects/CharacterAudio")]
+[CreateAssetMenu(fileName = "SeleneAudio", menuName = "Scriptable Objects/SeleneAudio")]
 
 public class SeleneAudio : ScriptableObject
 {
@@ -10,8 +10,8 @@ public class SeleneAudio : ScriptableObject
     private EventReference footstepEventRef, clawAttackEventRef, jumpEventRef, landEventRef, damageEventRef;
 
     private EventInstance footstepEventInst, clawAttackEventInst, jumpEventInst, landEventInst, damageEventInst;
-    
-   /* public void FootstepEventPlay(string surfaceTag, GameObject obj)
+
+    /*public void FootstepEventPlay(string surfaceTag, GameObject obj)
     {
         if (footstepEvent.IsNull)
         {
@@ -50,5 +50,59 @@ public class SeleneAudio : ScriptableObject
         clawAttackEventInst.start();
 
         clawAttackEventInst.release();
-    }*/
+    }
+   
+   public void JumpEventPlay(string surfaceTag, GameObject obj)
+   {
+       if (jumpEvent.IsNull)
+       {
+           Debug.LogWarning("Event not found: jumpEvent");
+       }
+       else
+       {
+           jumpEventInst = RuntimeManager.CreateInstance(jumpEventRef);
+            
+           RuntimeManager.AttachInstanceToGameObject(jumpEventInst, obj, obj.GetComponent<Rigidbody>());
+            
+           jumpEventInst.start();
+            
+           jumpEventInst.release();
+            
+       }
+   }
+   
+   public void LandEventPlay(string surfaceTag, GameObject obj)
+   {
+       if (landEvent.IsNull)
+       {
+           Debug.LogWarning("Event not found: footstepEvent");
+       }
+       else
+       {
+           landEventInst = RuntimeManager.CreateInstance(landEventRef);
+           RuntimeManager.AttachInstanceToGameObject(landEventInst, obj, obj.GetComponent<Rigidbody>());
+            
+           // A switch statement that compares the surfaceTag and its content, and sets the Surface paramteter wth a unique value based on this
+           switch (surfaceTag)
+           {
+               case "Stone":
+                   landEventInst.setParameterByName("SurfaceTag", 0f);
+                   break;
+               case "Dirt":
+                   landEventInst.setParameterByName("SurfaceTag", 1f);
+                   break;
+               case "Metal":
+                   landEventInst.setParameterByName("SurfaceTag", 2f);
+                   break;
+           }
+           landEventInst.start();
+           landEventInst.release();
+       }
+   } */
+
+
+   public void DamageEventPlay(Transform transform)
+   {
+       RuntimeManager.PlayOneShot(damageEventRef, transform.position);
+   }  
 }
