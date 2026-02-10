@@ -45,14 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 5237835202522095803}
-  playerAnimationController: {fileID: 8400752318088169641}
   groundCastSize: {x: 1, y: 0.2}
   castDistance: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   coyoteTime: 0.2
-  groundedBool: IsGrounded
 --- !u!1 &846135366370407026
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,7 +62,6 @@ GameObject:
   - component: {fileID: 8314879723380101889}
   - component: {fileID: 2158200033194156560}
   - component: {fileID: 930642645618112329}
-  - component: {fileID: 8400752318088169641}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -164,22 +161,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8400752318088169641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846135366370407026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5aeb55e7003dece4c8cdfb2867e0eedf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 930642645618112329}
-  rigidbody2D: {fileID: 5237835202522095803}
-  yVelocityVariable: yVelocityVariable
-  xVelocityVariable: xVelocityVariable
 --- !u!1 &3513328908113814862
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +344,7 @@ GameObject:
   - component: {fileID: 7851016066246966166}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,8 +594,7 @@ MonoBehaviour:
   executors:
   - {fileID: 7851016066246966166}
   attackPrefab: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
-  baseTimeBetweenAttacks: 0
-  baseAttackSpeed: 0
+  baseAttack1Cooldown: 0
 --- !u!114 &2223874813079029682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,3 +622,4 @@ MonoBehaviour:
   stats: {fileID: 5058434829624851813}
   ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
   animatorController: {fileID: 9100000, guid: c90e6d1da2ff25542bc50103e66f44ec, type: 2}
+  prefab: {fileID: 0}
