@@ -64,6 +64,12 @@ public class AudioManager : MonoBehaviour
 
     public void StopAudio(Location location)
     {
+        if (emitter.IsActive)
+            emitter.Stop();
+        else
+        {
+            emitter.Play();
+        }
         Debug.Log("StopAudio" + location);
     }
 }
