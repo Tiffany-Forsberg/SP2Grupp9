@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-/*
+
  public class AudioTrigger : MonoBehaviour
 {
     public enum Action
@@ -18,7 +18,7 @@ using UnityEngine;
 
     public AudioSettings[] triggerEnterSettings;
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
@@ -36,5 +36,5 @@ using UnityEngine;
             }
         }
     }
+    */
 }
-*/
