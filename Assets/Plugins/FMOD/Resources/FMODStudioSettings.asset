@@ -476,10 +476,10 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Desktop/Master
+  - Master
   Banks:
-  - Desktop/Music-Bank
-  - Desktop/Sound-Bank
+  - Music-Bank
+  - Sound-Bank
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
