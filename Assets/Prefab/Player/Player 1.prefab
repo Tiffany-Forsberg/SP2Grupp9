@@ -391,6 +391,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8404563809000991148, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 5973898585261053880}
+    - target: {fileID: 8404563809000991148, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
       propertyPath: rigidbody2D
       value: 
       objectReference: {fileID: 5237835202522095803}

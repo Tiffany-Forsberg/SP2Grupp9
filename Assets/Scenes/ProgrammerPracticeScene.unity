@@ -595,9 +595,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 265004860}
+  spriteRenderer: {fileID: 0}
   rigidbody2D: {fileID: 0}
   yVelocityVariable: 
   xVelocityVariable: 
+  groundCheck: {fileID: 0}
+  groundedBool: 
 --- !u!1 &501321303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6954425652009324719, guid: aeb70624e6f2649478095be0f1325a9d, type: 3}

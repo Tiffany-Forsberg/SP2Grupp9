@@ -128,3 +128,5 @@ MonoBehaviour:
   rigidbody2D: {fileID: 0}
   yVelocityVariable: yVelocityVariable
   xVelocityVariable: xVelocityVariable
+  groundCheck: {fileID: 0}
+  groundedBool: IsGrounded
