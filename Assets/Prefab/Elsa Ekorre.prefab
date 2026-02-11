@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: af12b98813a71de4cb43db5925c73c1f, type: 3}
+    - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Name
       value: Elsa Ekorre
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 17.9795
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.8931723
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -107,6 +111,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5262966166012529018}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6321802660473653537}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4571941694860188364}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8787239856979249726}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6423899899438883446}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!1 &680107833489894739 stripped
 GameObject:
@@ -132,17 +148,105 @@ MonoBehaviour:
   executors: []
   attackPrefab: {fileID: 0}
   pattern:
-    rid: 5720556947546046548
+    rid: 5720556947546046552
   references:
     version: 2
     RefIds:
-    - rid: 5720556947546046548
+    - rid: 5720556947546046552
       type: {class: ShotgunFiringPattern, ns: , asm: Assembly-CSharp}
       data:
-        maxFiringDistance: 0
-        firingArch: 0
-        archRandomization: 0
-        fireRate: 0
+        firingEvent: {fileID: 6423899899438883446}
+        firingArch: 0.2
+        archRandomization: 0.05
+--- !u!114 &6321802660473653537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afe8439267a74e988025dbd8519b1051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hostileLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  movement: {fileID: 4571941694860188364}
+  groundCheck: {fileID: 8787239856979249726}
+  pattern:
+    rid: 5720556947546046551
+  references:
+    version: 2
+    RefIds:
+    - rid: 5720556947546046551
+      type: {class: HelicopterMovementPattern, ns: , asm: Assembly-CSharp}
+      data:
+        firingEvent: {fileID: 6423899899438883446}
+        playerName: Player 1
+        preferredRangeToPlayer: {x: 4, y: 10}
+        speed: 5
+        moveCycleCooldown: 0.4
+--- !u!114 &4571941694860188364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40ea2ffaa83a484589ccb7d750500d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 2020793008549705881}
+  rigidbody2D: {fileID: 8214691419746756533}
+  baseMaxSpeed: 5
+  baseAcceleration: 0
+  baseDeceleration: 0
+  maxJumpHeight: 0
+  timeToReachMaxHeight: 0
+  minJumpHoldTime: 0
+  earlyReleaseGravity: 0
+  jumpEndForce: 0
+  baseAirAcceleration: 0
+  baseAirDeceleration: 0
+  maxFallSpeed: 0
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8787239856979249726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e1d2ea755c16e43910c67641abeaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2D: {fileID: 8214691419746756533}
+  groundCastSize: {x: 0, y: 0}
+  castDistance: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 192
+  coyoteTime: 0
+--- !u!114 &6423899899438883446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6048eaad68c042839585c7cdc4b99022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2020793008549705881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
@@ -154,3 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361ad5098e8e8d34e85fb4bbc2e8621a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &8214691419746756533 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+  m_PrefabInstance: {fileID: 5720854364597269150}
+  m_PrefabAsset: {fileID: 0}
