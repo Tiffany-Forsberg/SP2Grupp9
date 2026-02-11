@@ -1,26 +1,64 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    
+    [SerializeField] private SpriteRenderer spriteRenderer;
     
     [SerializeField] private Rigidbody2D rigidbody2D;
 
     [SerializeField] private string yVelocityVariable;
     
     [SerializeField] private string xVelocityVariable;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    private Vector2 _direction;
+
+    private void OnValidate()
     {
+        if (!transform.parent) return;
         
+        if (!animator)
+        {
+            Debug.LogWarning("Animator is missing in PlayerAnimationController.", this);
+        }
+
+        if (!spriteRenderer)
+        {
+            Debug.LogWarning("SpriteRenderer is missing in PlayerAnimationController.", this);
+        }
+
+        if (!rigidbody2D)
+        {
+            Debug.LogWarning("Rigidbody2D is missing in PlayerAnimationController.", this);
+        }
+
+        if (yVelocityVariable == "")
+        {
+            Debug.LogWarning("Y Velocity Variable is not assigned in PlayerAnimationController.", this);
+        }
+        
+        if (xVelocityVariable == "")
+        {
+            Debug.LogWarning("X Velocity Variable is not assigned in PlayerAnimationController.", this);
+        }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         animator.SetFloat(yVelocityVariable, rigidbody2D.linearVelocityY);
-        animator.SetFloat(xVelocityVariable, rigidbody2D.linearVelocityX);
+        if (_direction.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (_direction.x < 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        animator.SetFloat(xVelocityVariable, Mathf.Abs(rigidbody2D.linearVelocityX));
     }
 
     public void SetBoolTrue(string animatorBool)
@@ -36,5 +74,10 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetTrigger(string animatorBool)
     {
         animator.SetTrigger(animatorBool);
+    }
+
+    public void HandleLookDirection(InputAction.CallbackContext context)
+    {
+        _direction = context.ReadValue<Vector2>();
     }
 }

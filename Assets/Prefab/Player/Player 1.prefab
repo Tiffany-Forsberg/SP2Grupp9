@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5237835202522095803}
   - component: {fileID: 7737361668433862654}
   - component: {fileID: 4431459550067200919}
+  - component: {fileID: 2560976323527792890}
   - component: {fileID: 7565136668790763696}
   - component: {fileID: 3172866212083002648}
   - component: {fileID: 7918590066177527049}
@@ -180,7 +181,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.008311629, y: 0.43614882}
+  m_Offset: {x: 0, y: 0.10777074}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -190,8 +191,45 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.8088305, y: 1.7568012}
+  m_Size: {x: 0.75, y: 1.0191156}
   m_EdgeRadius: 0
+--- !u!70 &2560976323527792890
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954425652009324719}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.6714297}
+  m_Size: {x: 0.75, y: 0.8571404}
+  m_Direction: 0
 --- !u!114 &7565136668790763696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,11 +394,20 @@ PrefabInstance:
       propertyPath: rigidbody2D
       value: 
       objectReference: {fileID: 5237835202522095803}
+    - target: {fileID: 8404563809000991148, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 2158200033194156560}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+--- !u!212 &2158200033194156560 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 83483330989880358, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+  m_PrefabInstance: {fileID: 2079502885985932854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7528015928924897178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8404563809000991148, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
@@ -390,6 +437,10 @@ PrefabInstance:
       value: PlayerInput
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7737361668433862654}
@@ -398,6 +449,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7918590066177527049}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 7528015928924897178}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7737361668433862654}
@@ -405,6 +460,22 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7918590066177527049}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: HandleLookDirection
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: PlayerAnimationController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
+      propertyPath: m_ActionEvents.Array.data[10].m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7869121880177052569, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -507,6 +578,10 @@ PrefabInstance:
       propertyPath: rigidbody2D
       value: 
       objectReference: {fileID: 5237835202522095803}
+    - target: {fileID: 2099063213231279240, guid: dff543f6f579239478f0937700b6b8fb, type: 3}
+      propertyPath: groundCastSize.x
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 2099063213231279240, guid: dff543f6f579239478f0937700b6b8fb, type: 3}
       propertyPath: playerAnimationController
       value: 
