@@ -49,7 +49,6 @@ public class GroundCheck : MonoBehaviour
     }    
     public bool IsGrounded()
     {
-        Debug.Log(_isGrounded);
         return _isGrounded;
     }
     
