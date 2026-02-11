@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FindAggro : EnemyMovementPattern
 {
+    [SerializeField] private VectorEvent onFindAggro;
+    
     [HideInInspector] public bool HasAggro = false;
     [HideInInspector] public Vector2 AggroTarget = Vector2.zero;
     
@@ -55,6 +57,7 @@ public class FindAggro : EnemyMovementPattern
                     AggroTarget = contact.transform.position;
                 }
             }
+            onFindAggro.InvokeOnVectorEvent(AggroTarget);
         }
     }
 }

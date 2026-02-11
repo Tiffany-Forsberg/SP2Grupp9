@@ -4,6 +4,8 @@ using UnityEngine;
 [Serializable]
 public class SlashGruntMovementPattern : EnemyMovementPattern
 {
+    [SerializeField] private VectorEvent eventHandler;
+    
     [SerializeReference] public DirectionChangeOnImpactPattern directionChangeOnImpactPattern;
     [Tooltip("The base movement used when not in aggro")]
     [SerializeReference] private StepMovementPattern normalMovement;
@@ -12,6 +14,9 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
     [SerializeReference] private StepMovementPattern aggroMovement;
     [Tooltip("The pattern used to FindAggro")]
     [SerializeReference] private FindAggro aggroPattern;
+    [Tooltip("The stop pattern")]
+    [SerializeReference] private StopPattern stopPattern;
+    [SerializeField] private bool changeDirectionAfterDefend = true;
 
     [SerializeField] private Vector2 direction;
     [SerializeField] private Rigidbody2D rigidbody2D;
@@ -19,6 +24,8 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
     [SerializeField] private bool changeDirectionAfterAttack = true;
 
     private Vector2 _startDirection;
+    private bool _hasAttacked;
+    
 
     public override void Setup()
     {
@@ -26,6 +33,7 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         normalMovement.Setup();
         aggroMovement.Setup();
         aggroPattern.Setup();
+        stopPattern.Setup();
         
         normalMovement.MovingRight = direction.x > 0;
         aggroMovement.MovingRight = direction.x > 0;
@@ -35,9 +43,8 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
 
     public override void Execute(EntityMovement movement, LayerMask hostileLayers, GroundCheck groundCheck)
     {
-        direction = directionChangeOnImpactPattern.Direction;
-        normalMovement.MovingRight = direction.x > 0;
-        aggroMovement.MovingRight = direction.x > 0;
+        HandleDirectionChange();
+        
         directionChangeOnImpactPattern.Execute(movement, hostileLayers, groundCheck);
 
         if (direction == _startDirection) aggroPattern.FlipVision(true);
@@ -46,7 +53,6 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         if (!aggroPattern.HasAggro)
         {
             normalMovement.Execute(movement, hostileLayers, groundCheck);
-            
             aggroPattern.Execute(movement, hostileLayers, groundCheck);
         }
         else
@@ -54,6 +60,11 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
             if ((direction.x > 0  && rigidbody2D.position.x < aggroPattern.AggroTarget.x) || (direction.x < 0 && rigidbody2D.position.x > aggroPattern.AggroTarget.x))
             {
                 aggroMovement.Execute(movement, hostileLayers, groundCheck);
+            }
+            else if (!_hasAttacked)
+            {
+                stopPattern.Execute(movement, hostileLayers, groundCheck);
+                
             }
             else
             {
@@ -67,5 +78,12 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
                 aggroPattern.HasAggro = false;
             }
         }
+    }
+
+    private void HandleDirectionChange()
+    {
+        direction = directionChangeOnImpactPattern.Direction;
+        normalMovement.MovingRight = direction.x > 0;
+        aggroMovement.MovingRight = direction.x > 0;
     }
 }

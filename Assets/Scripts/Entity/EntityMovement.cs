@@ -151,6 +151,8 @@ public class EntityMovement : MonoBehaviour
     {
         if (horizontal) rigidbody2D.linearVelocityX = 0;
         if (vertical) rigidbody2D.linearVelocityY = 0;
+        
+        if (_stepCoroutine != null) StopCoroutine(_stepCoroutine);
     }
 
     /// <summary>
