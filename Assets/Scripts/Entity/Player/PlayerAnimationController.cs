@@ -13,6 +13,9 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private string yVelocityVariable;
     
     [SerializeField] private string xVelocityVariable;
+    
+    [SerializeField] private GroundCheck groundCheck;
+    [SerializeField] private string groundedBool;
 
     private Vector2 _direction;
 
@@ -59,6 +62,18 @@ public class PlayerAnimationController : MonoBehaviour
             spriteRenderer.flipX = false;
         }
         animator.SetFloat(xVelocityVariable, Mathf.Abs(rigidbody2D.linearVelocityX));
+    }
+
+    private void FixedUpdate()
+    {
+        if (groundCheck.CheckGrounded())
+        {
+            SetBoolTrue(groundedBool);
+        }
+        else
+        {
+            SetBoolFalse(groundedBool);
+        }
     }
 
     public void SetBoolTrue(string animatorBool)
