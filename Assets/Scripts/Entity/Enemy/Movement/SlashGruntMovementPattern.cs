@@ -14,22 +14,58 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
     [SerializeReference] private FindAggro aggroPattern;
 
     [SerializeField] private Vector2 direction;
+    [SerializeField] private Rigidbody2D rigidbody2D;
+
+    [SerializeField] private bool changeDirectionAfterAttack = true;
+
+    private Vector2 _startDirection;
 
     public override void Setup()
     {
+        directionChangeOnImpactPattern.Setup();
+        normalMovement.Setup();
+        aggroMovement.Setup();
+        aggroPattern.Setup();
+        
         normalMovement.MovingRight = direction.x > 0;
+        aggroMovement.MovingRight = direction.x > 0;
         directionChangeOnImpactPattern.Direction = direction;
+        _startDirection = direction;
     }
 
     public override void Execute(EntityMovement movement, LayerMask hostileLayers, GroundCheck groundCheck)
     {
+        direction = directionChangeOnImpactPattern.Direction;
+        normalMovement.MovingRight = direction.x > 0;
+        aggroMovement.MovingRight = direction.x > 0;
+        directionChangeOnImpactPattern.Execute(movement, hostileLayers, groundCheck);
+
+        if (direction == _startDirection) aggroPattern.FlipVision(true);
+        else aggroPattern.FlipVision(false);
+
         if (!aggroPattern.HasAggro)
         {
             normalMovement.Execute(movement, hostileLayers, groundCheck);
-            directionChangeOnImpactPattern.Execute(movement, hostileLayers, groundCheck);
             
-            normalMovement.MovingRight = directionChangeOnImpactPattern.Direction.x > 0;
             aggroPattern.Execute(movement, hostileLayers, groundCheck);
+        }
+        else
+        {
+            if ((direction.x > 0  && rigidbody2D.position.x < aggroPattern.AggroTarget.x) || (direction.x < 0 && rigidbody2D.position.x > aggroPattern.AggroTarget.x))
+            {
+                aggroMovement.Execute(movement, hostileLayers, groundCheck);
+            }
+            else
+            {
+                if (changeDirectionAfterAttack)
+                {
+                    direction.x *= -1;
+                    normalMovement.MovingRight = direction.x > 0;
+                    aggroMovement.MovingRight = direction.x > 0;
+                    directionChangeOnImpactPattern.Direction = direction;
+                }
+                aggroPattern.HasAggro = false;
+            }
         }
     }
 }
