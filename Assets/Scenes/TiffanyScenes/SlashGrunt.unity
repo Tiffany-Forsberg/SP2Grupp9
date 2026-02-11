@@ -2876,7 +2876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7341527189696806984, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_Name
-      value: SlashGrunt
+      value: "Eva 37, Chef \xF6ver Plantagen"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

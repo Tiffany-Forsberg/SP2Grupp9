@@ -5,10 +5,15 @@ using UnityEngine;
 [Serializable]
 public class StepMovementPattern : EnemyMovementPattern
 {
-    [SerializeField] private float _tinyStepSpeed;
-    [SerializeField] private float _tinyStepDuration;
-    [SerializeField] private float _bigStepSpeed;
-    [SerializeField] private float _bigStepDuration;
+    [Min(0.0f)] [SerializeField] private float _tinyStepSpeed;
+    [Min(0.0f)] [SerializeField] private float _tinyStepDuration;
+    [Min(0.0f)] [SerializeField] private float _bigStepSpeed;
+    [Min(0.0f)] [SerializeField] private float _bigStepDuration;
+    
+    [Tooltip("Handles the characters movement direction")]
+    public bool MovingRight = true;
+    
+    private int Direction => MovingRight ? 1 : -1;
     
     private bool _isSlowStepping;
     private float _timer;
@@ -27,12 +32,12 @@ public class StepMovementPattern : EnemyMovementPattern
         _isSlowStepping = !_isSlowStepping;
         if (_isSlowStepping)
         {
-            movement.HandleStep(_tinyStepSpeed, () => _isSlowStepping);
+            movement.HandleStep(_tinyStepSpeed * Direction, () => _isSlowStepping);
             _timer = _tinyStepDuration;
         }
         else
         {
-            movement.HandleStep(_bigStepSpeed, () => !_isSlowStepping);
+            movement.HandleStep(_bigStepSpeed * Direction, () => !_isSlowStepping);
             _timer = _bigStepDuration;
         }
     }

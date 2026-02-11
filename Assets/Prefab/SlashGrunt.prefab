@@ -158,17 +158,37 @@ MonoBehaviour:
   movement: {fileID: -3893143969158056581}
   groundCheck: {fileID: 7667176270300542419}
   pattern:
-    rid: 5420340772218601558
+    rid: 5420340772218601559
   references:
     version: 2
     RefIds:
-    - rid: 5420340772218601558
+    - rid: 5420340772218601559
+      type: {class: SlashGruntMovementPattern, ns: , asm: Assembly-CSharp}
+      data:
+        stepMovementPattern:
+          rid: 5420340772218601560
+        directionChangeOnImpactPattern:
+          rid: 5420340772218601561
+        direction: {x: -1, y: 0}
+    - rid: 5420340772218601560
       type: {class: StepMovementPattern, ns: , asm: Assembly-CSharp}
       data:
-        _tinyStepSpeed: -2
-        _tinyStepDuration: 1
-        _bigStepSpeed: -5
-        _bigStepDuration: 1
+        _tinyStepSpeed: 2
+        _tinyStepDuration: 0.5
+        _bigStepSpeed: 5
+        _bigStepDuration: 0.5
+        MovingRight: 1
+    - rid: 5420340772218601561
+      type: {class: DirectionChangeOnImpactPattern, ns: , asm: Assembly-CSharp}
+      data:
+        rigidbody2D: {fileID: 2202841030365301422}
+        raycastDistance: 3
+        impactLayers:
+          serializedVersion: 2
+          m_Bits: 64
+        shouldUseVerticalImpacts: 0
+        shouldUseHorizontalImpacts: 1
+        Direction: {x: 0, y: 0}
 --- !u!114 &-3893143969158056581
 MonoBehaviour:
   m_ObjectHideFlags: 0
