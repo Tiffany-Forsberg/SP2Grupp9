@@ -146,4 +146,15 @@ public class EntityMovement : MonoBehaviour
         
         rigidbody2D.linearVelocityX = 0;
     }
+
+    /// <summary>
+    /// Used to manually drive the movement of enemies, useful for instance if enemies should fly
+    /// </summary>
+    public void ApplyDirectVelocity(Vector2 velocity)
+    {
+        rigidbody2D.linearVelocity = velocity;
+    }
+    
+    // TODO: Add omnidirectional acceleration/deceleration through dot products?
+    // This should make free-moving enemies able to move smoothly without interfering with existing movement or having to do it themselves
 }
