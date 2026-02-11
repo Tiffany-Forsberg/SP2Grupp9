@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DisplayConfounds : MonoBehaviour
+public class DisplayCollider : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D confoundCollider;
 

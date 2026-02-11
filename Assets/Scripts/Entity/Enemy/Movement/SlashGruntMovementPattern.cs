@@ -4,22 +4,32 @@ using UnityEngine;
 [Serializable]
 public class SlashGruntMovementPattern : EnemyMovementPattern
 {
-    [SerializeReference] private StepMovementPattern stepMovementPattern;
     [SerializeReference] public DirectionChangeOnImpactPattern directionChangeOnImpactPattern;
+    [Tooltip("The base movement used when not in aggro")]
+    [SerializeReference] private StepMovementPattern normalMovement;
+    [Header("Aggro settings")]
+    [Tooltip("The movement used when in aggro")]
+    [SerializeReference] private StepMovementPattern aggroMovement;
+    [Tooltip("The pattern used to FindAggro")]
+    [SerializeReference] private FindAggro aggroPattern;
 
     [SerializeField] private Vector2 direction;
 
     public override void Setup()
     {
-        stepMovementPattern.MovingRight = direction.x > 0;
+        normalMovement.MovingRight = direction.x > 0;
         directionChangeOnImpactPattern.Direction = direction;
     }
 
     public override void Execute(EntityMovement movement, LayerMask hostileLayers, GroundCheck groundCheck)
     {
-        stepMovementPattern.Execute(movement, hostileLayers, groundCheck);
-        directionChangeOnImpactPattern.Execute(movement, hostileLayers, groundCheck);
-        
-        stepMovementPattern.MovingRight = directionChangeOnImpactPattern.Direction.x > 0;
+        if (!aggroPattern.HasAggro)
+        {
+            normalMovement.Execute(movement, hostileLayers, groundCheck);
+            directionChangeOnImpactPattern.Execute(movement, hostileLayers, groundCheck);
+            
+            normalMovement.MovingRight = directionChangeOnImpactPattern.Direction.x > 0;
+            aggroPattern.Execute(movement, hostileLayers, groundCheck);
+        }
     }
 }

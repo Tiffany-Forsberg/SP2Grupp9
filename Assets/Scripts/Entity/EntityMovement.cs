@@ -147,6 +147,12 @@ public class EntityMovement : MonoBehaviour
         rigidbody2D.linearVelocityX = 0;
     }
 
+    public void Stop(bool horizontal = true, bool vertical = true)
+    {
+        if (horizontal) rigidbody2D.linearVelocityX = 0;
+        if (vertical) rigidbody2D.linearVelocityY = 0;
+    }
+
     /// <summary>
     /// Used to manually drive the movement of enemies, useful for instance if enemies should fly
     /// </summary>
