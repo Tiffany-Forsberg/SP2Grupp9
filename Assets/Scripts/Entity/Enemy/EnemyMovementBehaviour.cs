@@ -9,6 +9,11 @@ public class EnemyMovementBehaviour : MonoBehaviour
     [SerializeReference]
     private EnemyMovementPattern pattern;
 
+    private void Awake()
+    {
+        pattern.Setup();
+    }
+    
     private void FixedUpdate()
     {
         pattern.Execute(movement, hostileLayers, groundCheck);
