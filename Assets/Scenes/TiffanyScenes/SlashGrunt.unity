@@ -289,53 +289,11 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &248965158 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6954425652009324719, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-  m_PrefabInstance: {fileID: 1701691823}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &248965169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7396793000027080822, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
   m_PrefabInstance: {fileID: 1701691823}
   m_PrefabAsset: {fileID: 0}
---- !u!70 &248965170
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248965158}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.6714297}
-  m_Size: {x: 0.75, y: 0.8571404}
-  m_Direction: 0
 --- !u!50 &248965171 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5237835202522095803, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
@@ -2819,33 +2777,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4431459550067200919, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: m_Size.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431459550067200919, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0191156
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431459550067200919, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4431459550067200919, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.10777074
-      objectReference: {fileID: 0}
-    - target: {fileID: 5973898585261053880, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: groundCastSize.x
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 6954425652009324719, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
       propertyPath: m_Name
       value: Player 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6988863922094654596, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      propertyPath: maxFallSpeed
-      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 7396793000027080822, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2890,10 +2824,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6954425652009324719, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 248965170}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
 --- !u!1001 &1791836869
 PrefabInstance:
@@ -2905,11 +2836,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.440142
+      value: 26.77
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.457876
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2960,6 +2891,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 164782235075252182, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
+      propertyPath: Lookahead.Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 164782235075252182, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
       propertyPath: Composition.DeadZone.Size.y
       value: 0

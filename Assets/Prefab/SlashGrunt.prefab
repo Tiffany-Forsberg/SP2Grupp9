@@ -9,32 +9,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 80daf5d4e14abe94484703bdd955ac11, type: 3}
+    - target: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Color.r
-      value: 0.9056604
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 1f0095c310ffc3d4590d1f0c5f6a0a56, type: 2}
+    - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_GravityScale
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Name
       value: SlashGrunt
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 26.77
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68,7 +76,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -359.619
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7313329966990865269, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313329966990865269, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7313329966990865269, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -84,6 +101,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7667176270300542419}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8244514859945222200}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!50 &2202841030365301422 stripped
 Rigidbody2D:
@@ -138,12 +158,17 @@ MonoBehaviour:
   movement: {fileID: -3893143969158056581}
   groundCheck: {fileID: 7667176270300542419}
   pattern:
-    rid: -2
+    rid: 5420340772218601558
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5420340772218601558
+      type: {class: StepMovementPattern, ns: , asm: Assembly-CSharp}
+      data:
+        _tinyStepSpeed: -2
+        _tinyStepDuration: 1
+        _bigStepSpeed: -5
+        _bigStepDuration: 1
 --- !u!114 &-3893143969158056581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,11 +189,11 @@ MonoBehaviour:
   maxJumpHeight: 0
   timeToReachMaxHeight: 0
   minJumpHoldTime: 0
-  earlyReleaseGravity: 0
+  earlyReleaseGravity: 3
   jumpEndForce: 0
   baseAirAcceleration: 0
   baseAirDeceleration: 0
-  maxFallSpeed: 0
+  maxFallSpeed: 23.1
   onJump:
     m_PersistentCalls:
       m_Calls: []
@@ -185,12 +210,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
-  groundCastSize: {x: 0, y: 0}
-  castDistance: 0
+  playerAnimationController: {fileID: 0}
+  groundCastSize: {x: 2.5, y: 0.2}
+  castDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
   coyoteTime: 0
+  groundedBool: 
+--- !u!61 &8244514859945222200
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341527189696806984}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.1704638}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3, y: 2}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 3, y: 1.6590724}
+  m_EdgeRadius: 0
 --- !u!114 &8113567762717250946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
