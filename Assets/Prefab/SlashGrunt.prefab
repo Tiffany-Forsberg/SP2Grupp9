@@ -206,6 +206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5420458274516414201}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1337871494893370121}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!50 &2202841030365301422 stripped
 Rigidbody2D:
@@ -238,8 +241,9 @@ MonoBehaviour:
   hostileLayer:
     serializedVersion: 2
     m_Bits: 256
-  executors: []
-  attackPrefab: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+  executors:
+  - {fileID: 1337871494893370121}
+  attackPrefab: {fileID: 4988752738192113481, guid: 817204120586d0a4990b8c50b665858d, type: 3}
   pattern:
     rid: 5420340817350623316
   references:
@@ -289,6 +293,7 @@ MonoBehaviour:
         changeDirectionAfterDefend: 1
         direction: {x: -1, y: 0}
         rigidbody2D: {fileID: 2202841030365301422}
+        collider2D: {fileID: 8244514859945222200}
         changeDirectionAfterAttack: 1
     - rid: 5420340772218601561
       type: {class: DirectionChangeOnImpactPattern, ns: , asm: Assembly-CSharp}
@@ -314,9 +319,9 @@ MonoBehaviour:
     - rid: 5420340772218601563
       type: {class: StepMovementPattern, ns: , asm: Assembly-CSharp}
       data:
-        _tinyStepSpeed: 10
+        _tinyStepSpeed: 7
         _tinyStepDuration: 0.5
-        _bigStepSpeed: 20
+        _bigStepSpeed: 10
         _bigStepDuration: 0.5
         collider: {fileID: 8244514859945222200}
         MovingRight: 1
@@ -440,6 +445,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6048eaad68c042839585c7cdc4b99022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1337871494893370121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341527189696806984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473d46fc397e19e4db607eb9e54817bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 8113567762717250946}
+  ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
+  animatorController: {fileID: 0}
 --- !u!114 &8113567762717250946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
