@@ -8,8 +8,12 @@ public class EnemyAttackBehaviour : MonoBehaviour
     [SerializeField] private List<AbilityExecutor> executors;
     [SerializeField] private AttackBehaviour attackPrefab;
 
-    [SerializeReference]
-    private EnemyAttackPattern pattern;
+    [SerializeReference] private EnemyAttackPattern pattern;
+    
+    private void Awake()
+    {
+        pattern.Setup();
+    }
 
     private void FixedUpdate()
     {
