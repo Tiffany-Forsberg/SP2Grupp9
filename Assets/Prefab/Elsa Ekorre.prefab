@@ -187,7 +187,8 @@ MonoBehaviour:
         playerName: Player 1
         preferredRangeToPlayer: {x: 4, y: 10}
         speed: 5
-        moveCycleCooldown: 0.4
+        moveCycleCooldown: 1
+        movePointRotation: 0.152
 --- !u!114 &4571941694860188364
 MonoBehaviour:
   m_ObjectHideFlags: 0
