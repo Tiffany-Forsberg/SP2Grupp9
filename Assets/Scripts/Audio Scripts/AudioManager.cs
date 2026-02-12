@@ -17,6 +17,10 @@ public class AudioManager : MonoBehaviour
     [Header("Ambiance Emitter")]
     [SerializeField] private StudioEventEmitter ambianceCombatEmitter;
     [SerializeField] private StudioEventEmitter ambianceRestingEmitter;
+    
+    [Header("Music Emitter")]
+    [SerializeField] private StudioEventEmitter MusicEmitter;
+
     private StudioEventEmitter emitter;
     private void Awake()
     //Method to check that there is only ONE AudioManager in the current active scene
@@ -45,9 +49,11 @@ public class AudioManager : MonoBehaviour
         {
             case Location.Combat:
                 emitter = ambianceCombatEmitter;
+				emitter = MusicEmitter;
                 break;
             case Location.Resting:
                 emitter = ambianceRestingEmitter;
+				emitter = MusicEmitter;
                 break;
         }
     }

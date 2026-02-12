@@ -180,6 +180,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
+--- !u!114 &789880271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7757512647754856760, guid: 94230d40407a9c043ba9611697ce3d87, type: 3}
+  m_PrefabInstance: {fileID: 7679018550910055588}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &994755218
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1487795466195698958, guid: 94230d40407a9c043ba9611697ce3d87, type: 3}
+      propertyPath: MusicEmitter
+      value: 
+      objectReference: {fileID: 789880271}
     - target: {fileID: 5922239903116353254, guid: 94230d40407a9c043ba9611697ce3d87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -761,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 5922239903116353254, guid: 94230d40407a9c043ba9611697ce3d87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7757512647754856760, guid: 94230d40407a9c043ba9611697ce3d87, type: 3}
+      propertyPath: EventPlayTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
