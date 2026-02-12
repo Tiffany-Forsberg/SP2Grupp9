@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hostileLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   movement: {fileID: -3893143969158056581}
   groundCheck: {fileID: 7667176270300542419}
   pattern:
