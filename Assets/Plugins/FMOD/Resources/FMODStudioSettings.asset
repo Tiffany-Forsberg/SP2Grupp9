@@ -486,12 +486,18 @@ MonoBehaviour:
   - Music-Bank
   - Sound-Bank
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   BanksToLoad:
   - Master
   - Master.strings
   - Music-Bank
   - Sound-Bank
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
