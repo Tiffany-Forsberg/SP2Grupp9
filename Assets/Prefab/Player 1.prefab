@@ -45,14 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 5237835202522095803}
-  playerAnimationController: {fileID: 0}
   groundCastSize: {x: 1, y: 0.2}
   castDistance: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   coyoteTime: 0.2
-  groundedBool: 
 --- !u!1 &846135366370407026
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeleneAudio: {fileID: 11400000, guid: db0297279c44c9145937465e7772d1be, type: 2}
   footstepSource: {fileID: 0}
+  jumpSource: {fileID: 0}
+  landingSource: {fileID: 0}
 --- !u!114 &2522757388013973306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +193,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SeleneAudio: {fileID: 0}
   footstepSource: {fileID: 0}
+  jumpSource: {fileID: 0}
+  landingSource: {fileID: 0}
 --- !u!1 &3513328908113814862
 GameObject:
   m_ObjectHideFlags: 0
