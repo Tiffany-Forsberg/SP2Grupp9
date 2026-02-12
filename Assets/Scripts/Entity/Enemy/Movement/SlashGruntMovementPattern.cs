@@ -16,10 +16,12 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
     [SerializeReference] private FindAggro aggroPattern;
     [Tooltip("The stop pattern")]
     [SerializeReference] private StopPattern stopPattern;
+    
     [SerializeField] private bool changeDirectionAfterDefend = true;
 
     [SerializeField] private Vector2 direction;
     [SerializeField] private Rigidbody2D rigidbody2D;
+    [SerializeField] private Collider2D collider2D;
 
     [SerializeField] private bool changeDirectionAfterAttack = true;
 
@@ -42,7 +44,7 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         
         aggroMovement.ShouldUseTargetPosition = true;
 
-        eventHandler.OnEvent = () => { _hasAttacked = true; Debug.Log("Event Recieved");};
+        eventHandler.OnEvent = () => _hasAttacked = true;
     }
 
     public override void Execute(EntityMovement movement, LayerMask hostileLayers, GroundCheck groundCheck)
@@ -63,14 +65,13 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         {
             aggroMovement.SetTargetPosition(aggroPattern.AggroTarget);
             
-            if ((direction.x > 0  && rigidbody2D.position.x < aggroPattern.AggroTarget.x) || (direction.x < 0 && rigidbody2D.position.x > aggroPattern.AggroTarget.x))
+            if (!collider2D.OverlapPoint(aggroPattern.AggroTarget))
             {
                 aggroMovement.Execute(movement, hostileLayers, groundCheck);
             }
             else if (!_hasAttacked)
             {
-                stopPattern.Execute(movement, hostileLayers, groundCheck);
-                
+                //stopPattern.Execute(movement, hostileLayers, groundCheck);
             }
             else
             {
