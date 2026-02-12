@@ -22,14 +22,6 @@ public class AbilityExecutor : MonoBehaviour
         // _castTimer.OnTimerStart = () => animatorController.OrNull()?.PlayOneShot(ability.animationClip);
     }
 
-    private void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     Execute(target);
-        // }
-    }
-
     public void Execute(GameObject target)
     {
         if (!target) return;
