@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerAudioController : MonoBehaviour
 {
     public SeleneAudio SeleneAudio;
-    public GameObject footstepSource, jumpSource, landingSource;
+    public GameObject footstepSource;
     
     public void FootstepPlay()
     {
@@ -36,12 +36,12 @@ public class PlayerAudioController : MonoBehaviour
 
     public void JumpEventPlay()
     {
-        RaycastHit2D hit = Physics2D.Raycast(jumpSource.transform.position, Vector2.down, 1f,
+        RaycastHit2D hit = Physics2D.Raycast(footstepSource.transform.position, Vector2.down, 1f,
             LayerMask.GetMask("Ground"));
         if (hit)
         {
             Debug.Log("FootstepPlay on: " + hit.collider.gameObject.tag);
-            SeleneAudio.JumpEventPlay(hit.collider.tag, jumpSource);
+            SeleneAudio.JumpEventPlay(hit.collider.tag, footstepSource);
             
             Debug.Log("jumpwoman!");
         }
@@ -49,12 +49,12 @@ public class PlayerAudioController : MonoBehaviour
 
     public void LandingPlay()
     {
-        RaycastHit2D hit = Physics2D.Raycast(landingSource.transform.position, Vector2.down, 1f,
+        RaycastHit2D hit = Physics2D.Raycast(footstepSource.transform.position, Vector2.down, 1f,
             LayerMask.GetMask("Ground"));
         if (hit)
         {
             Debug.Log("FootstepPlay on: " + hit.collider.gameObject.tag);
-            SeleneAudio.LandEventPlay(hit.collider.tag, landingSource);
+            SeleneAudio.LandEventPlay(hit.collider.tag, footstepSource);
             
             Debug.Log("land!");
         }
