@@ -2963,6 +2963,10 @@ PrefabInstance:
       propertyPath: hostileLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 7918590066177527049, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
+      propertyPath: baseTimeBetweenAttacks
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2982,7 +2986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1995954794627886128, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: onTakeDamage.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1995954794627886128, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -3028,6 +3032,10 @@ PrefabInstance:
       propertyPath: onTakeDamage.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2202841030365301422, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: m_LinearDamping
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.77
@@ -3068,6 +3076,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -359.619
       objectReference: {fileID: 0}
+    - target: {fileID: 6251443274608491464, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: baseKnockbackReduction
+      value: 3.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7341527189696806984, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_Name
       value: "Eva 37, Chef \xF6ver Plantagen"
@@ -3076,6 +3088,10 @@ PrefabInstance:
       propertyPath: onDeath
       value: 
       objectReference: {fileID: 11400000, guid: 87bc3fcc8f45c134596ceffc6e8d6a2f, type: 2}
+    - target: {fileID: 8244514859945222200, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: managedReferences[5420340772218601564].hostileLayers.m_Bits
       value: 256
