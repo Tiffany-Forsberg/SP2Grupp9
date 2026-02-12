@@ -4,8 +4,11 @@ public class PlayerAudioController : MonoBehaviour
 {
     public SeleneAudio SeleneAudio;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     public GameObject footstepSource, jumpSource, landingSource;
 =======
+=======
+>>>>>>> Stashed changes
     public GameObject footstepSource;
 >>>>>>> Stashed changes
     
@@ -17,6 +20,7 @@ public class PlayerAudioController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(footstepSource.transform.position, Vector2.down, 1f,
             LayerMask.GetMask("Ground"));
         if (hit)
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
         {
             Debug.Log("FootstepPlay on: " + hit.collider.gameObject.tag);
@@ -77,6 +81,8 @@ public class PlayerAudioController : MonoBehaviour
             Debug.Log("oof!");
         }
 =======
+=======
+>>>>>>> Stashed changes
         {
             Debug.Log("FootstepPlay on: " + hit.collider.gameObject.tag);
             SeleneAudio.FootstepEventPlay(hit.collider.tag, footstepSource);
@@ -96,6 +102,9 @@ public class PlayerAudioController : MonoBehaviour
             Physics.Raycast(footstepSource.transform.position, Vector3.down, out hit, 1f);
             Debug.Log("No sound for you..." + hit);
         }*/
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
 }
