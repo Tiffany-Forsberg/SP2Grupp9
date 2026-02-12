@@ -21,7 +21,6 @@ public class AttackOnPositionHit : EnemyAttackPattern
     {
         if (collider.OverlapPoint(_targetPosition))
         {
-            Debug.Log("It's Lupus");
             AttackBehaviour attackBehaviour = UnityEngine.Object.Instantiate(attackPrefab, collider.transform.position, collider.transform.rotation);
             attackBehaviour.Setup(executors, hostileLayer, Vector2.zero);
             entityEventHandler.InvokeOnEvent();
