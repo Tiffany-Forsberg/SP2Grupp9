@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FindAggro : EnemyMovementPattern
 {
-    [SerializeField] private VectorEvent onFindAggro;
+    [SerializeField] private EntityEvent onFindAggro;
     
     [HideInInspector] public bool HasAggro = false;
     [HideInInspector] public Vector2 AggroTarget = Vector2.zero;

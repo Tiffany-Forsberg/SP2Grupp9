@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDeath : MonoBehaviour
+public class EnemyDeath_DesignPlaceholder : MonoBehaviour
 {
     public void Die()
     {

@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public class ShotgunFiringPattern : EnemyAttackPattern
 {
-    [SerializeField] private VectorEvent firingEvent;
+    [SerializeField] private EntityEvent firingEvent;
     
     [Tooltip("The normalized angle from the player direction that the two extra bullets should be fired (0 = 0 degrees, 1 = pi/180 degrees)")]
     [SerializeField, Range(0f, 1f)] private float firingArch;

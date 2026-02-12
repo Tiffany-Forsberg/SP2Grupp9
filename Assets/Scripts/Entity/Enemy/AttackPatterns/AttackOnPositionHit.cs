@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AttackOnPositionReachedPattern : EnemyAttackPattern
 {
-    [SerializeField] private VectorEvent entityEventHandler;
+    [SerializeField] private EntityEvent entityEventHandler;
     [SerializeField] private BoxCollider2D collider;
     private Vector2 _targetPosition;
     

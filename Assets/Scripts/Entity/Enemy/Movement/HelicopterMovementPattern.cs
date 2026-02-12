@@ -8,7 +8,7 @@ using UnityEngine.Events;
 /// </summary>
 public class HelicopterMovementPattern : EnemyMovementPattern
 {
-    [SerializeField] private VectorEvent firingEvent;
+    [SerializeField] private EntityEvent firingEvent;
     
     private GameObject _playerObject;
     // THIS IS A TEMP SOLUTION, PLEASE FIND A BETTER WAY AND REMOVE THIS ASAP

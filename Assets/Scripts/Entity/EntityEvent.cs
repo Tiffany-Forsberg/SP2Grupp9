@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class VectorEvent : MonoBehaviour
+public class EntityEvent : MonoBehaviour
 {
     public Action<Vector2> OnVectorEvent;
     public Action OnEvent;

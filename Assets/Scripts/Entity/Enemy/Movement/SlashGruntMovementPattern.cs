@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class SlashGruntMovementPattern : EnemyMovementPattern
 {
-    [SerializeField] private VectorEvent eventHandler;
+    [SerializeField] private EntityEvent eventHandler;
     
     [SerializeReference] public DirectionChangeOnImpactPattern directionChangeOnImpactPattern;
     [Tooltip("The base movement used when not in aggro")]
