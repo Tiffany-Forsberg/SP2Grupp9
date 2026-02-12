@@ -78,7 +78,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
         {
             if (_moveTowardsPoint is null || !movingRoutineRunning)
             {
-                FindPoints(positionDelta);
+                FindPoints(positionDelta, _playerObject.transform.position);
                 foreach (Vector2 point in _cyclePoints)
                 {
                     Debug.Log(point);
@@ -87,19 +87,18 @@ public class HelicopterMovementPattern : EnemyMovementPattern
                 movingRoutineRunning = true;
             }
             
-            /*if (moveCycleTimer.IsFinished)
+            if (moveCycleTimer.IsFinished)
             {
                 Vector2 randomMovement = Random.insideUnitCircle * speed;
                 movement.ApplyDirectVelocity(randomMovement);
                 moveCycleTimer.Reset();
                 moveCycleTimer.Start();
-                
                 firingEvent.OnVectorEvent?.Invoke(deltaDirection);
-            }*/
+            }
         }
     }
 
-    private void FindPoints(Vector2 positionDelta)
+    private void FindPoints(Vector2 positionDelta, Vector2 playerPosition)
     {
         _cyclePoints.Clear();
         Vector2 midPoint = (-positionDelta).normalized * ((preferredRangeToPlayer.x + preferredRangeToPlayer.y)*0.5f);
@@ -111,7 +110,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
         {
             float randomRotation = Random.Range(-movePointRotation, movePointRotation);
             Vector2 randomArchPoint = xAxis * Mathf.Cos(randomRotation) + yAxis * Mathf.Sin(randomRotation);
-            _cyclePoints.Add(randomArchPoint * Random.Range(preferredRangeToPlayer.x, preferredRangeToPlayer.y));
+            _cyclePoints.Add(playerPosition + randomArchPoint * Random.Range(preferredRangeToPlayer.x, preferredRangeToPlayer.y));
         }
     }
 
@@ -131,12 +130,12 @@ public class HelicopterMovementPattern : EnemyMovementPattern
             
             Vector2 moveDirection = delta.normalized;
             
-            while (Vector2.Dot(moveDirection, _cyclePoints[i] - startPoint) > 0)
+            while (Vector2.Dot(moveDirection, _cyclePoints[i] - (Vector2)movement.transform.position) > 0)
             {
-                Debug.Log(Vector2.Dot(moveDirection, _cyclePoints[i] - startPoint));
-                movement.ApplyDirectVelocity(moveDirection * speed);
+                movement.ApplyDirectVelocity(moveDirection.normalized * speed);
                 yield return new WaitForFixedUpdate();
             }
         }
+        movingRoutineRunning = false;
     }
 }
