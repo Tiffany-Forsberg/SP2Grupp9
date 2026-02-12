@@ -11,6 +11,7 @@ public class EntityEffectEventPort : ScriptableObject
     public event UnityAction<GameObject, int> HealingEvent;
     // Caster, Target, Power
     public event UnityAction<GameObject, GameObject, float> KnockbackEvent;
+    public event UnityAction<GameObject, GameObject, float> SelfPushbackEvent;
 
     public void DealDamage(GameObject damageable, int damage)
     {
@@ -25,5 +26,10 @@ public class EntityEffectEventPort : ScriptableObject
     public void ApplyKnockback(GameObject caster, GameObject target, float power)
     {
         KnockbackEvent?.Invoke(caster, target, power);
+    }
+
+    public void ApplySelfPushback(GameObject caster, GameObject target, float power)
+    {
+        SelfPushbackEvent?.Invoke(caster, target, power);
     }
 }

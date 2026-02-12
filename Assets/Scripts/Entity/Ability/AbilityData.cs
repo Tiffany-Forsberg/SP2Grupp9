@@ -42,8 +42,6 @@ public class DamageEffect : AbilityEffect
     {
         int damage = (int) ((Amount + stats.DamageFlatIncrease) * stats.DamageMultiplier);
         entityEffectEventPort.DealDamage(target, damage);
-        //target.GetComponent<Damageable>().ApplyDamage(Amount);
-        Debug.Log(caster.name + " dealt " + Amount + " damage to " + target.name);
     }
 }
 
@@ -52,15 +50,27 @@ public class KnockbackEffect : AbilityEffect
 {
     [Tooltip("The global EntityEffectEventPort")]
     [SerializeField] private EntityEffectEventPort entityEffectEventPort;
-    [Tooltip("The amount of damage that will be dealt")]
+    [Tooltip("The force applied on knockback")]
     public float Force;
     public override void Execute(GameObject caster, GameObject target, EntityStats stats)
     {
-        Vector2 direction = (target.transform.position - caster.transform.position).normalized;
-        // target.GetComponent<Rigidbody2D>().AddForce(direction * Force, ForceMode2D.Impulse);
         int knockback = (int) ((Force + stats.KnockbackDealtFlatIncrease) * stats.KnockbackDealtMultiplier);
         
         entityEffectEventPort.ApplyKnockback(caster, target, knockback);
-        Debug.Log(caster.name + " knocked " + target.name + " with a force of " + Force + " in the direction of " + direction);
+    }
+}
+
+[Serializable]
+public class AttackSelfPushback : AbilityEffect
+{
+    [Tooltip("The global EntityEffectEventPort")]
+    [SerializeField] private EntityEffectEventPort entityEffectEventPort;
+    [Tooltip("The force applied to self")]
+    public float Force;
+    
+    public override void Execute(GameObject caster, GameObject target, EntityStats stats)
+    {
+        entityEffectEventPort.ApplySelfPushback(caster, target, Force);
+        Debug.Log($"{caster.name} received pushback of {Force} from {target.name}");
     }
 }

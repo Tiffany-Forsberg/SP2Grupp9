@@ -16,6 +16,7 @@ MonoBehaviour:
   Effects:
   - rid: 5420340637567549635
   - rid: 5420340637567549636
+  - rid: 5420340817350623317
   animationClip: {fileID: 0}
   CastTime: 0
   references:
@@ -31,3 +32,8 @@ MonoBehaviour:
       data:
         entityEffectEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
         Force: 5
+    - rid: 5420340817350623317
+      type: {class: AttackSelfPushback, ns: , asm: Assembly-CSharp}
+      data:
+        entityEffectEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
+        Force: 10

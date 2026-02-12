@@ -79,7 +79,12 @@ public class EntityMovement : MonoBehaviour
         int currentSignOfDirection = Math.Sign(rigidbody2D.linearVelocityX);
         bool changingDirection = signOfDirection != currentSignOfDirection && currentSignOfDirection != 0;
         
-        if (signOfDirection != 0)
+        if (signOfDirection != 0 && Mathf.Abs(rigidbody2D.linearVelocityX) <= MaxSpeed)
+        {
+            float acceleration = changingDirection ? usedAcceleration + usedDeceleration : usedAcceleration;
+            newVelocityX = rigidbody2D.linearVelocityX + acceleration * Time.fixedDeltaTime * signOfDirection;
+        } 
+        else if (signOfDirection != 0 && signOfDirection != currentSignOfDirection)
         {
             float acceleration = changingDirection ? usedAcceleration + usedDeceleration : usedAcceleration;
             newVelocityX = rigidbody2D.linearVelocityX + acceleration * Time.fixedDeltaTime * signOfDirection;
@@ -89,7 +94,7 @@ public class EntityMovement : MonoBehaviour
             newVelocityX = Mathf.MoveTowards(rigidbody2D.linearVelocityX, 0, Time.fixedDeltaTime * usedDeceleration);
         }
         
-        rigidbody2D.linearVelocityX = Mathf.Clamp(newVelocityX, -MaxSpeed, MaxSpeed);
+        rigidbody2D.linearVelocityX = newVelocityX;
     }
 
     public void Jump(Func<bool> isJumping)
