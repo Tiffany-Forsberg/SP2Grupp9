@@ -1,8 +1,10 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackOnPositionReachedPattern : EnemyAttackPattern
+[Serializable]
+public class AttackOnPositionHit : EnemyAttackPattern
 {
     [SerializeField] private EntityEvent entityEventHandler;
     [SerializeField] private BoxCollider2D collider;
@@ -17,7 +19,13 @@ public class AttackOnPositionReachedPattern : EnemyAttackPattern
     public override void Execute(EntityStats stats, LayerMask hostileLayer, List<AbilityExecutor> executors,
         AttackBehaviour attackPrefab)
     {
-        if (collider.OverlapPoint(_targetPosition)) entityEventHandler.InvokeOnEvent();
+        if (collider.OverlapPoint(_targetPosition))
+        {
+            Debug.Log("It's Lupus");
+            AttackBehaviour attackBehaviour = UnityEngine.Object.Instantiate(attackPrefab, collider.transform.position, collider.transform.rotation);
+            attackBehaviour.Setup(executors, hostileLayer, Vector2.zero);
+            entityEventHandler.InvokeOnEvent();
+        }
     }
 
     private void GetTarget(Vector2 targetPosition)

@@ -45,9 +45,7 @@ public class Knockbackable : MonoBehaviour
 
     private void ReceiveSelfPushback(GameObject caster, GameObject target, float power)
     {
-        Debug.Log("THAT BOY IS A MONSTER!!!");
         if (gameObject != caster) return;
-        Debug.Log("Poker Face");
         
         Vector2 direction = (target.transform.position - caster.transform.position).normalized;
         rigidbody2D.AddForce(direction * -power, ForceMode2D.Impulse);

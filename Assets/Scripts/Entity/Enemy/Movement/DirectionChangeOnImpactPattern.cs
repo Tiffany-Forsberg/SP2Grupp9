@@ -34,7 +34,6 @@ public class DirectionChangeOnImpactPattern : EnemyMovementPattern
             hit = Physics2D.Raycast(rigidbody2D.position, Vector2.right * Math.Sign(Direction.x), raycastDistance, impactLayers);
             if (hit)
             {
-                Debug.Log($"Impact hit, normal: {hit.normal}");
                 Direction = Vector2.Reflect(Direction, hit.normal);
                 return;
             }

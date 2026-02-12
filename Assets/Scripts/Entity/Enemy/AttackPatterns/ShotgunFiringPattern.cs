@@ -13,6 +13,8 @@ public class ShotgunFiringPattern : EnemyAttackPattern
     [Tooltip("The randomization applied to the firing arch value, high values may result in the extra bullets being fired in very erratic directions")]
     [SerializeField, Range(0f, 1f)] private float archRandomization;
 
+    [SerializeField] private Rigidbody2D rB;
+
     /*[Tooltip("The fire rate of this enemy")]
     [SerializeField] private float fireRate;
     private CountdownTimer firingCooldown;*/
@@ -56,7 +58,7 @@ public class ShotgunFiringPattern : EnemyAttackPattern
     private void FireInDirection(Vector2 direction, EntityStats stats, LayerMask hostileLayer, List<AbilityExecutor> executors, AttackBehaviour attackPrefab)
     {
         AttackBehaviour bullet1 = UnityEngine.Object.Instantiate(attackPrefab, stats.transform.position, Quaternion.identity);
-        attackPrefab.Setup(executors, hostileLayer, direction);
+        bullet1.Setup(executors, hostileLayer, direction);
 
         Vector2 localX = direction.normalized;
         Vector2 localY = new Vector2(direction.y, -direction.x).normalized;

@@ -13,6 +13,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: af12b98813a71de4cb43db5925c73c1f, type: 3}
     - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 1f0095c310ffc3d4590d1f0c5f6a0a56, type: 2}
+    - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
@@ -123,6 +127,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6423899899438883446}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2031477602578090511}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!1 &680107833489894739 stripped
 GameObject:
@@ -144,9 +151,10 @@ MonoBehaviour:
   entityStats: {fileID: 2020793008549705881}
   hostileLayer:
     serializedVersion: 2
-    m_Bits: 0
-  executors: []
-  attackPrefab: {fileID: 0}
+    m_Bits: 256
+  executors:
+  - {fileID: 2031477602578090511}
+  attackPrefab: {fileID: 6282404221486509628, guid: 7dee5fa4c2e0d904e8807cf5d384f693, type: 3}
   pattern:
     rid: 5720556947546046552
   references:
@@ -158,6 +166,7 @@ MonoBehaviour:
         firingEvent: {fileID: 6423899899438883446}
         firingArch: 0.2
         archRandomization: 0.05
+        rB: {fileID: 8214691419746756533}
 --- !u!114 &6321802660473653537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,19 +185,19 @@ MonoBehaviour:
   movement: {fileID: 4571941694860188364}
   groundCheck: {fileID: 8787239856979249726}
   pattern:
-    rid: 5720556947546046551
+    rid: 5720556969850044501
   references:
     version: 2
     RefIds:
-    - rid: 5720556947546046551
+    - rid: 5720556969850044501
       type: {class: HelicopterMovementPattern, ns: , asm: Assembly-CSharp}
       data:
         firingEvent: {fileID: 6423899899438883446}
         playerName: Player 1
         preferredRangeToPlayer: {x: 4, y: 10}
         speed: 5
-        moveCycleCooldown: 1
-        movePointRotation: 0.152
+        moveCycleCooldown: 2
+        movePointRotation: 0.13
 --- !u!114 &4571941694860188364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +222,7 @@ MonoBehaviour:
   jumpEndForce: 0
   baseAirAcceleration: 0
   baseAirDeceleration: 0
-  maxFallSpeed: 0
+  maxFallSpeed: 25.67
   onJump:
     m_PersistentCalls:
       m_Calls: []
@@ -248,6 +257,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6048eaad68c042839585c7cdc4b99022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2031477602578090511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473d46fc397e19e4db607eb9e54817bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 2020793008549705881}
+  ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
+  animatorController: {fileID: 0}
 --- !u!114 &2020793008549705881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}

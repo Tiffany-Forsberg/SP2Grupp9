@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2260431003971524218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67, y: 0, z: 0}
+  m_LocalPosition: {x: -0.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -80,7 +80,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -1, y: -0.2}
+  m_Offset: {x: -4.473806, y: -0.19999999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -90,7 +90,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 1}
+  m_Size: {x: 9.947614, y: 1}
   m_EdgeRadius: 0
 --- !u!1001 &2591519046703783813
 PrefabInstance:
@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlashGrunt
       objectReference: {fileID: 0}
+    - target: {fileID: 5900289934401814645, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: onDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 87bc3fcc8f45c134596ceffc6e8d6a2f, type: 2}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.77
@@ -199,6 +203,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8244514859945222200}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5420458274516414201}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!50 &2202841030365301422 stripped
 Rigidbody2D:
@@ -230,16 +237,19 @@ MonoBehaviour:
   entityStats: {fileID: 8113567762717250946}
   hostileLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   executors: []
-  attackPrefab: {fileID: 0}
+  attackPrefab: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
   pattern:
-    rid: -2
+    rid: 5420340817350623316
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 5420340817350623316
+      type: {class: AttackOnPositionHit, ns: , asm: Assembly-CSharp}
+      data:
+        entityEventHandler: {fileID: 5420458274516414201}
+        collider: {fileID: 8244514859945222200}
 --- !u!114 &8515115756745413656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +275,7 @@ MonoBehaviour:
     - rid: 5420340772218601559
       type: {class: SlashGruntMovementPattern, ns: , asm: Assembly-CSharp}
       data:
+        eventHandler: {fileID: 5420458274516414201}
         directionChangeOnImpactPattern:
           rid: 5420340772218601561
         normalMovement:
@@ -273,7 +284,12 @@ MonoBehaviour:
           rid: 5420340772218601563
         aggroPattern:
           rid: 5420340772218601564
+        stopPattern:
+          rid: 5420340817350623315
+        changeDirectionAfterDefend: 1
         direction: {x: -1, y: 0}
+        rigidbody2D: {fileID: 2202841030365301422}
+        changeDirectionAfterAttack: 1
     - rid: 5420340772218601561
       type: {class: DirectionChangeOnImpactPattern, ns: , asm: Assembly-CSharp}
       data:
@@ -292,24 +308,33 @@ MonoBehaviour:
         _tinyStepDuration: 0.5
         _bigStepSpeed: 5
         _bigStepDuration: 0.5
+        collider: {fileID: 8244514859945222200}
         MovingRight: 1
+        ShouldUseTargetPosition: 0
     - rid: 5420340772218601563
       type: {class: StepMovementPattern, ns: , asm: Assembly-CSharp}
       data:
-        _tinyStepSpeed: 5
+        _tinyStepSpeed: 10
         _tinyStepDuration: 0.5
-        _bigStepSpeed: 10
+        _bigStepSpeed: 20
         _bigStepDuration: 0.5
+        collider: {fileID: 8244514859945222200}
         MovingRight: 1
+        ShouldUseTargetPosition: 0
     - rid: 5420340772218601564
       type: {class: FindAggro, ns: , asm: Assembly-CSharp}
       data:
+        onFindAggro: {fileID: 5420458274516414201}
         HasAggro: 0
         AggroTarget: {x: 0, y: 0}
         aggroCollider: {fileID: 8326531572493423447}
         hostileLayers:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 256
+    - rid: 5420340817350623315
+      type: {class: StopPattern, ns: , asm: Assembly-CSharp}
+      data:
+        movement: {fileID: -3893143969158056581}
 --- !u!114 &-3893143969158056581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,14 +376,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 2202841030365301422}
-  playerAnimationController: {fileID: 0}
   groundCastSize: {x: 2.5, y: 0.2}
   castDistance: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
-  coyoteTime: 0
-  groundedBool: 
+  coyoteTime: 0.1
 --- !u!61 &8244514859945222200
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -405,6 +428,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 1.6590724}
   m_EdgeRadius: 0
+--- !u!114 &5420458274516414201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341527189696806984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6048eaad68c042839585c7cdc4b99022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8113567762717250946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
