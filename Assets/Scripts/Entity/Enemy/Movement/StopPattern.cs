@@ -1,6 +1,8 @@
 ﻿
+using System;
 using UnityEngine;
 
+[Serializable]
 public class StopPattern : EnemyMovementPattern
 {
     [SerializeField] private EntityMovement movement;

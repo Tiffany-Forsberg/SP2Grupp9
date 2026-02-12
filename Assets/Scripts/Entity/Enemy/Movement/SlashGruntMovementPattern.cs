@@ -39,6 +39,10 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         aggroMovement.MovingRight = direction.x > 0;
         directionChangeOnImpactPattern.Direction = direction;
         _startDirection = direction;
+        
+        aggroMovement.ShouldUseTargetPosition = true;
+
+        eventHandler.OnEvent = () => { _hasAttacked = true; Debug.Log("Event Recieved");};
     }
 
     public override void Execute(EntityMovement movement, LayerMask hostileLayers, GroundCheck groundCheck)
@@ -57,6 +61,8 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
         }
         else
         {
+            aggroMovement.SetTargetPosition(aggroPattern.AggroTarget);
+            
             if ((direction.x > 0  && rigidbody2D.position.x < aggroPattern.AggroTarget.x) || (direction.x < 0 && rigidbody2D.position.x > aggroPattern.AggroTarget.x))
             {
                 aggroMovement.Execute(movement, hostileLayers, groundCheck);
@@ -76,6 +82,7 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
                     directionChangeOnImpactPattern.Direction = direction;
                 }
                 aggroPattern.HasAggro = false;
+                _hasAttacked = false;
             }
         }
     }

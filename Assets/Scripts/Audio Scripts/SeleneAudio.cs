@@ -11,9 +11,9 @@ public class SeleneAudio : ScriptableObject
 
     private EventInstance footstepEventInst, clawAttackEventInst, jumpEventInst, landEventInst, damageEventInst;
 
-    /*public void FootstepEventPlay(string surfaceTag, GameObject obj)
+    public void FootstepEventPlay(string surfaceTag, GameObject obj)
     {
-        if (footstepEvent.IsNull)
+        if (footstepEventRef.IsNull)
         {
             Debug.LogWarning("Event not found: footstepEvent");
         }
@@ -54,7 +54,7 @@ public class SeleneAudio : ScriptableObject
    
    public void JumpEventPlay(string surfaceTag, GameObject obj)
    {
-       if (jumpEvent.IsNull)
+       if (jumpEventRef.IsNull)
        {
            Debug.LogWarning("Event not found: jumpEvent");
        }
@@ -73,7 +73,7 @@ public class SeleneAudio : ScriptableObject
    
    public void LandEventPlay(string surfaceTag, GameObject obj)
    {
-       if (landEvent.IsNull)
+       if (landEventRef.IsNull)
        {
            Debug.LogWarning("Event not found: footstepEvent");
        }
@@ -98,11 +98,11 @@ public class SeleneAudio : ScriptableObject
            landEventInst.start();
            landEventInst.release();
        }
-   } */
+   } 
 
 
    public void DamageEventPlay(Transform transform)
    {
        RuntimeManager.PlayOneShot(damageEventRef, transform.position);
-   }  
+   } 
 }
