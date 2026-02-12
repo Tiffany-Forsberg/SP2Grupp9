@@ -299,6 +299,11 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 5237835202522095803, guid: 4cbb6698987746d4185b3a92e549ced2, type: 3}
   m_PrefabInstance: {fileID: 1701691823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &256803623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7341527189696806984, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+  m_PrefabInstance: {fileID: 1791836869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &501660634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2528,34 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2202841030365301422, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
   m_PrefabInstance: {fileID: 1791836869}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &748327236 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -3893143969158056581, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+  m_PrefabInstance: {fileID: 1791836869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256803623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40ea2ffaa83a484589ccb7d750500d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &748327245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256803623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6048eaad68c042839585c7cdc4b99022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &748327246 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8244514859945222200, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+  m_PrefabInstance: {fileID: 1791836869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1203204627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2895,6 +2928,10 @@ PrefabInstance:
       propertyPath: coyoteTime
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 8220448900031799280, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onDeath
+      value: 
+      objectReference: {fileID: 11400000, guid: 87bc3fcc8f45c134596ceffc6e8d6a2f, type: 2}
     - target: {fileID: 8326531572493423447, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_Size.x
       value: 9.947614
@@ -2912,9 +2949,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: 'managedReferences[5420340817350623315]'
+      value: Assembly-CSharp StopPattern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340772218601562].collider
+      value: 
+      objectReference: {fileID: 748327246}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340772218601563].collider
+      value: 
+      objectReference: {fileID: 748327246}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340817350623315].movement
+      value: 
+      objectReference: {fileID: 748327236}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: managedReferences[5420340772218601559].rigidbody2D
       value: 
       objectReference: {fileID: 748327233}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340772218601559].stopPattern
+      value: 5420340817350623315
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340772218601564].onFindAggro
+      value: 
+      objectReference: {fileID: 748327245}
+    - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: managedReferences[5420340772218601559].eventHandler
+      value: 
+      objectReference: {fileID: 748327245}
     - target: {fileID: 8515115756745413656, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: managedReferences[5420340772218601563]._bigStepSpeed
       value: 20
@@ -2934,7 +2999,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7341527189696806984, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 748327245}
   m_SourcePrefab: {fileID: 100100000, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
 --- !u!1001 &2107536556
 PrefabInstance:
