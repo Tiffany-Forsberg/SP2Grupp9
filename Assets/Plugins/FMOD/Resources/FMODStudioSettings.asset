@@ -485,6 +485,14 @@ MonoBehaviour:
   - Master.strings
   - Music-Bank
   - Sound-Bank
+<<<<<<< Updated upstream
+=======
+  BanksToLoad:
+  - Master
+  - Master.strings
+  - Music-Bank
+  - Sound-Bank
+>>>>>>> Stashed changes
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
   AndroidUseOBB: 0

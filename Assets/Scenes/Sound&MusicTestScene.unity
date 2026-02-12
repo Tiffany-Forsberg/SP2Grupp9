@@ -508,7 +508,7 @@ MonoBehaviour:
       Data4: -398448808
     Path: event:/Sound/Ambience/Audience
   Event: 
-  EventPlayTrigger: 1
+  EventPlayTrigger: 0
   EventStopTrigger: 2
   AllowFadeout: 1
   TriggerOnce: 0
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 1598826714}
   m_Layer: 6
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
