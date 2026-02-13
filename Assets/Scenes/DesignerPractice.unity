@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 110509702}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.059991, y: 6.5000005, z: -10}
+  m_LocalPosition: {x: 15.060001, y: 6.5000005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3106,10 +3106,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6988863922094654596, guid: 6e850bdc1e57d814b819854a06de5772, type: 3}
-      propertyPath: maxFallSpeed
-      value: 23
-      objectReference: {fileID: 0}
     - target: {fileID: 7396793000027080822, guid: 6e850bdc1e57d814b819854a06de5772, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.06
@@ -3156,7 +3152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7918590066177527049, guid: 6e850bdc1e57d814b819854a06de5772, type: 3}
       propertyPath: baseTimeBetweenAttacks
-      value: 0.67
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8430480153922202713, guid: 6e850bdc1e57d814b819854a06de5772, type: 3}
       propertyPath: groundCastSize.x
@@ -3179,50 +3175,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 164782235075252182, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: Composition.DeadZone.Size.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 164782235075252182, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: Composition.ScreenPosition.y
-      value: -0.000000009313226
-      objectReference: {fileID: 0}
-    - target: {fileID: 347632876325202461, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: Lens.OrthographicSize
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 347632876325202461, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
       objectReference: {fileID: 248965169}
     - target: {fileID: 3853849227978288178, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: defaultDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853849227978288178, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: upwardsDamping
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3853849227978288178, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
       propertyPath: playerRigidBody
       value: 
       objectReference: {fileID: 248965171}
-    - target: {fileID: 3853849227978288178, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: downwardsDamping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5073603843319617922, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: Damping
-      value: 3.4
-      objectReference: {fileID: 0}
     - target: {fileID: 5073603843319617922, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
       propertyPath: BoundingShape2D
       value: 
       objectReference: {fileID: 2133818282}
-    - target: {fileID: 5073603843319617922, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
-      propertyPath: OversizeWindow.Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6960140859921778312, guid: f2eaf21bd6d019049953209ed16846a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.06
