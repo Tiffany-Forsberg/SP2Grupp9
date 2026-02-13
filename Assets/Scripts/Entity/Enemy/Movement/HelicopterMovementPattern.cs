@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ImprovedTimers;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
@@ -22,7 +23,12 @@ public class HelicopterMovementPattern : EnemyMovementPattern
     [Tooltip("This is not a vector, but a range that this enemy prefers to stay within relative to the player, X = min distance and Y = max distance")]
     [SerializeField] private Vector2 preferredRangeToPlayer;
 
-    [SerializeField] private float speed;
+    [Tooltip("The speed at which this enemy will move towards the player when they're too far away")]
+    [SerializeField] private float chaseSpeed;
+    [Tooltip("The speed at which this enemy will flee from the player when too close")]
+    [SerializeField] private float fleeSpeed;
+    [Tooltip("The speed at which this enemy will cycle between its random points when within its preferred range")]
+    [FormerlySerializedAs("speed")] [SerializeField] private float cycleSpeed;
 
     [SerializeField] private float moveCycleCooldown;
     private CountdownTimer moveCycleTimer;
@@ -63,7 +69,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
                 movement.StopCoroutine(_moveTowardsPoint);
                 movingRoutineRunning = false;
             }
-            movement.ApplyDirectVelocity(-deltaDirection * speed);
+            movement.ApplyDirectVelocity(-deltaDirection * fleeSpeed);
         }
         else if (positionDelta.magnitude > preferredRangeToPlayer.y)
         {
@@ -72,7 +78,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
                 movement.StopCoroutine(_moveTowardsPoint);
                 movingRoutineRunning = false;
             }
-            movement.ApplyDirectVelocity(deltaDirection * speed);
+            movement.ApplyDirectVelocity(deltaDirection * chaseSpeed);
         }
         else
         {
@@ -85,7 +91,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
             
             if (moveCycleTimer.IsFinished)
             {
-                Vector2 randomMovement = Random.insideUnitCircle * speed;
+                Vector2 randomMovement = Random.insideUnitCircle * cycleSpeed;
                 movement.ApplyDirectVelocity(randomMovement);
                 moveCycleTimer.Reset();
                 moveCycleTimer.Start();
@@ -128,7 +134,7 @@ public class HelicopterMovementPattern : EnemyMovementPattern
             
             while (Vector2.Dot(moveDirection, _cyclePoints[i] - (Vector2)movement.transform.position) > 0)
             {
-                movement.ApplyDirectVelocity(moveDirection.normalized * speed);
+                movement.ApplyDirectVelocity(moveDirection.normalized * cycleSpeed);
                 yield return new WaitForFixedUpdate();
             }
         }
