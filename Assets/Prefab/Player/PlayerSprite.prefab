@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 83483330989880358}
   - component: {fileID: 1166905460112155007}
   - component: {fileID: 8404563809000991148}
+  - component: {fileID: 8600873154060954011}
   m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
@@ -130,3 +131,19 @@ MonoBehaviour:
   xVelocityVariable: xVelocityVariable
   groundCheck: {fileID: 0}
   groundedBool: IsGrounded
+--- !u!114 &8600873154060954011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686021343330460740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff42e25356c2794fbe331650d9fa72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SeleneAudio: {fileID: 11400000, guid: db0297279c44c9145937465e7772d1be, type: 2}
+  footstepSource: {fileID: 0}
+  jumpSource: {fileID: 0}
+  landingSource: {fileID: 0}

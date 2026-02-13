@@ -23,7 +23,7 @@ public class Damageable : MonoBehaviour
     [Tooltip("Triggers when receiving healing")]
     [SerializeField] private UnityEvent onReceiveHeal;
     [Tooltip("Triggers when taking non zero damage")]
-    [SerializeField] private UnityEvent onTakeDamage;
+    public UnityEvent OnTakeDamage;
     [Tooltip("Triggers when taking zero damage due to it being fully blocked")]
     [SerializeField] private UnityEvent onDamageFullyBlocked;
     [Tooltip("Triggers when entity dies")]
@@ -58,7 +58,7 @@ public class Damageable : MonoBehaviour
         }
         else
         {
-            onTakeDamage?.Invoke();
+            OnTakeDamage?.Invoke();
         }
         
 

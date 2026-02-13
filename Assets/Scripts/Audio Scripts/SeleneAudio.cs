@@ -41,7 +41,7 @@ public class SeleneAudio : ScriptableObject
         }
     }
 
-    public void clawAttackPlay(GameObject obj)
+    public void ClawAttackPlay(GameObject obj)
     {
         clawAttackEventInst = RuntimeManager.CreateInstance(clawAttackEventRef);
 
@@ -101,7 +101,7 @@ public class SeleneAudio : ScriptableObject
    } 
 
 
-   public void DamageEventPlay(Transform transform)
+   public void SeleneDamageEventPlay(Transform transform)
    {
        RuntimeManager.PlayOneShot(damageEventRef, transform.position);
    } 

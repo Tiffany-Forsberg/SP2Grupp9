@@ -79,10 +79,6 @@ public class HelicopterMovementPattern : EnemyMovementPattern
             if (_moveTowardsPoint is null || !movingRoutineRunning)
             {
                 FindPoints(positionDelta, _playerObject.transform.position);
-                foreach (Vector2 point in _cyclePoints)
-                {
-                    Debug.Log(point);
-                }
                 _moveTowardsPoint = movement.StartCoroutine(CycleBetweenPoints(movement));
                 movingRoutineRunning = true;
             }

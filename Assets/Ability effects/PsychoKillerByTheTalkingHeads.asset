@@ -36,4 +36,4 @@ MonoBehaviour:
       type: {class: AttackSelfPushback, ns: , asm: Assembly-CSharp}
       data:
         entityEffectEventPort: {fileID: 11400000, guid: fa080870c6615994ba234407563b7fef, type: 2}
-        Force: 10
+        Force: 6

@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.9795
+      value: 20.266422
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.8931723
+      value: 10.3543
       objectReference: {fileID: 0}
     - target: {fileID: 7255628393135187328, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -130,6 +130,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2031477602578090511}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8279668416646165076}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!1 &680107833489894739 stripped
 GameObject:
@@ -271,7 +274,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 2020793008549705881}
   ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
-  animatorController: {fileID: 0}
+  ignoresInvincibility: 0
+--- !u!114 &8279668416646165076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60a7593de8e4bac8a9330457a2fc999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: {fileID: 8584261265871356203}
+  duration: 0
+  onInvincibilityStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onInvincibilityFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2020793008549705881 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
@@ -288,3 +311,14 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
   m_PrefabInstance: {fileID: 5720854364597269150}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8584261265871356203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4054896182633722805, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+  m_PrefabInstance: {fileID: 5720854364597269150}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680107833489894739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76caaedc4b265274d91fa7cde0949653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
