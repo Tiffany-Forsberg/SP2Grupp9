@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using ImprovedTimers;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerAttackController : MonoBehaviour
@@ -27,6 +28,8 @@ public class PlayerAttackController : MonoBehaviour
     private Vector2 _lastHorizontalDirection = Vector2.right;
     private Vector2 _lastHeldDirection = Vector2.right;
     private bool _downwardsHeld = false;
+
+    [SerializeField] private UnityEvent onAttack1; 
 
     private void Start()
     {
@@ -83,7 +86,7 @@ public class PlayerAttackController : MonoBehaviour
             attackBehaviour.transform.parent = transform;
             _attack1Cooldown.Reset(TimeBetweenAttacks);
             _attack1Cooldown.Start();
+            onAttack1?.Invoke();
         }
     }
-    
 }
