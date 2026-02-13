@@ -124,7 +124,7 @@ MonoBehaviour:
       type: {class: TemporaryAttack, ns: , asm: Assembly-CSharp}
       data:
         self: {fileID: 7766102172661749528}
-        duration: 2
+        duration: 5
 --- !u!50 &8975845987769525296
 Rigidbody2D:
   serializedVersion: 5
