@@ -50,6 +50,8 @@ public class SeleneAudio : ScriptableObject
         clawAttackEventInst.start();
 
         clawAttackEventInst.release();
+        
+        Debug.Log("Attack sound here");
     }
    
    public void JumpEventPlay(string surfaceTag, GameObject obj)
