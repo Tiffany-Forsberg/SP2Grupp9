@@ -6,10 +6,12 @@ public class AttackBehaviour : MonoBehaviour
 {
     private List<AbilityExecutor> _executors;
     private LayerMask _hostileLayers;
+    [SerializeField] private LayerMask groundLayers;
 
     [SerializeReference] private List<AttackPatterns> patterns;
     
     public UnityEvent OnHit;
+    public UnityEvent OnGroundCollision;
     public UnityEvent OnCollision;
     private Vector2 _attackDirection;
 
@@ -38,6 +40,11 @@ public class AttackBehaviour : MonoBehaviour
             }
             OnHit?.Invoke();
         }
+        if (((1 << other.gameObject.layer) & groundLayers) != 0)
+        {
+            OnGroundCollision?.Invoke();
+        }
+        
         OnCollision?.Invoke();
     }
 }

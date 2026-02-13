@@ -205,8 +205,8 @@ MonoBehaviour:
         firingEvent: {fileID: 6423899899438883446}
         playerName: Player 1
         preferredRangeToPlayer: {x: 4, y: 10}
-        chaseSpeed: 0
-        fleeSpeed: 0
+        chaseSpeed: 5
+        fleeSpeed: 5
         cycleSpeed: 5
         moveCycleCooldown: 2
         movePointRotation: 0.13

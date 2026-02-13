@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8134611280374880849}
   - component: {fileID: 1648307596872777362}
   - component: {fileID: 6282404221486509628}
+  - component: {fileID: 7415492666264714393}
   - component: {fileID: 8975845987769525296}
   - component: {fileID: 49804975030358200}
   m_Layer: 0
@@ -102,12 +103,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e7eb5423ec9d3468e89dc2ffad3f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
   patterns:
   - rid: 5720556969850044499
   - rid: 5720556969850044500
   OnHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7415492666264714393}
+        m_TargetAssemblyTypeName: DestroyObjectEvent, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7766102172661749528}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnGroundCollision:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7415492666264714393}
+        m_TargetAssemblyTypeName: DestroyObjectEvent, Assembly-CSharp
+        m_MethodName: DestroyObject
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 7766102172661749528}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCollision:
     m_PersistentCalls:
       m_Calls: []
@@ -125,6 +156,18 @@ MonoBehaviour:
       data:
         self: {fileID: 7766102172661749528}
         duration: 5
+--- !u!114 &7415492666264714393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7766102172661749528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590c01048d34ef8458db06ed9ee38bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &8975845987769525296
 Rigidbody2D:
   serializedVersion: 5
