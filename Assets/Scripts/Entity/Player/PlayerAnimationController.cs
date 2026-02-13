@@ -85,11 +85,31 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetBool(animatorBool, false);
     }
+
+    #region Trigger setters
+    
+    public void SetTriggerOnButtonUp(InputAction.CallbackContext context, string animatorBool)
+    {
+        if (context.canceled)
+        {
+            SetTrigger(animatorBool);
+        }
+    }
+    
+    public void SetTriggerOnButtonDown(InputAction.CallbackContext context, string animatorBool)
+    {
+        if (context.started)
+        {
+            SetTrigger(animatorBool);
+        }
+    }
     
     public void SetTrigger(string animatorBool)
     {
         animator.SetTrigger(animatorBool);
     }
+    
+    #endregion
 
     public void HandleLookDirection(InputAction.CallbackContext context)
     {
