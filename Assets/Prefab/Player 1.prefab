@@ -361,13 +361,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageable: {fileID: 7565136668790763696}
-  duration: 1
+  duration: 2
   onInvincibilityStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4499053511458681225}
+        m_TargetAssemblyTypeName: DamageAndIFrameVisualisation, Assembly-CSharp
+        m_MethodName: VisualizeIFrames
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onInvincibilityFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4499053511458681225}
+        m_TargetAssemblyTypeName: DamageAndIFrameVisualisation, Assembly-CSharp
+        m_MethodName: StopIFrameVisualisation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7665047327292384988
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +431,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7396793000027080822}
     m_Modifications:
+    - target: {fileID: 83483330989880358, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 611132b167d2be04d8428dad93326ada, type: 2}
     - target: {fileID: 1686021343330460740, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
       propertyPath: m_Name
       value: PlayerSprite
@@ -466,8 +494,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1686021343330460740, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4499053511458681225}
   m_SourcePrefab: {fileID: 100100000, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+--- !u!212 &484553616974457641 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 83483330989880358, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+  m_PrefabInstance: {fileID: 545477988715978511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1221634580277476171 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1686021343330460740, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
+  m_PrefabInstance: {fileID: 545477988715978511}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4499053511458681225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221634580277476171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8cd8071e3405299ef6a0904b1f939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 484553616974457641}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
+  iFrameFlashTime: 0.2
+  iFrameFlashIntensity: 0.6
 --- !u!4 &7507059132366182968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8052299616235554103, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
@@ -478,7 +536,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8404563809000991148, guid: de47ce36c5557bc4a92b142c400601a7, type: 3}
   m_PrefabInstance: {fileID: 545477988715978511}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1221634580277476171}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aeb55e7003dece4c8cdfb2867e0eedf, type: 3}
