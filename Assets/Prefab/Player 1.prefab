@@ -338,7 +338,7 @@ MonoBehaviour:
   executors:
   - {fileID: 7851016066246966166}
   attackPrefab: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
-  baseTimeBetweenAttacks: 0
+  baseTimeBetweenAttacks: 0.8
   baseAttackSpeed: 0
   onAttack1:
     m_PersistentCalls:
@@ -615,7 +615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -623,7 +623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[2].m_Mode
@@ -671,7 +671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: BufferInputContext
+      value: SetTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 2970602950720138418, guid: 1e59254bb76645449ab19f4a5b4d184b, type: 3}
       propertyPath: m_ActionEvents.Array.data[12].m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
