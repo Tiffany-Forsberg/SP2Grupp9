@@ -19,6 +19,8 @@ public class PlayerAnimationController : MonoBehaviour
 
     private Vector2 _direction;
 
+    private InputAction.CallbackContext contextBuffer;
+
     private void OnValidate()
     {
         if (!transform.parent) return;
@@ -76,6 +78,11 @@ public class PlayerAnimationController : MonoBehaviour
         }
     }
 
+    public void BufferInputContext(InputAction.CallbackContext context)
+    {
+        contextBuffer = context;
+    }
+
     public void SetBoolTrue(string animatorBool)
     {
         animator.SetBool(animatorBool, true);
@@ -88,17 +95,17 @@ public class PlayerAnimationController : MonoBehaviour
 
     #region Trigger setters
     
-    public void SetTriggerOnButtonUp(InputAction.CallbackContext context, string animatorBool)
+    public void SetTriggerOnButtonUp(string animatorBool)
     {
-        if (context.canceled)
+        if (contextBuffer.canceled)
         {
             SetTrigger(animatorBool);
         }
     }
     
-    public void SetTriggerOnButtonDown(InputAction.CallbackContext context, string animatorBool)
+    public void SetTriggerOnButtonDown(string animatorBool)
     {
-        if (context.started)
+        if (contextBuffer.started)
         {
             SetTrigger(animatorBool);
         }
