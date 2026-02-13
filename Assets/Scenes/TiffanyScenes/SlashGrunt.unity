@@ -2473,6 +2473,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &502168866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2097026562572308073, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+  m_PrefabInstance: {fileID: 1791836869}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8cd8071e3405299ef6a0904b1f939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &667808002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +2868,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 502168866}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 502168866}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: VisualizeIFrames
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StopIFrameVisualisation
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DamageAndIFrameVisualisation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DamageAndIFrameVisualisation, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityStarted.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4745726200468727337, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
+      propertyPath: onInvincibilityFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.77
@@ -2871,19 +2938,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99999446
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0033263932
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2895,11 +2962,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5136292991899515397, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -359.619
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7341527189696806984, guid: 6a858bd5f6dd9a14dab84526187f54c2, type: 3}
       propertyPath: m_Name
-      value: "Eva 37, Chef \xF6ver Plantagen"
+      value: "Eva 37, FD Chef \xF6ver Plantagen"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
