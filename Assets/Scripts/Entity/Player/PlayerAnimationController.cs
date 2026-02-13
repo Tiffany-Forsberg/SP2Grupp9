@@ -115,6 +115,11 @@ public class PlayerAnimationController : MonoBehaviour
     {
         animator.SetTrigger(animatorBool);
     }
+
+    public void ResetTrigger(string animatorBool)
+    {
+        animator.ResetTrigger(animatorBool);
+    }
     
     #endregion
 
