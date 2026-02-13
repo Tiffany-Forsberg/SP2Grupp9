@@ -2570,21 +2570,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -359.619
       objectReference: {fileID: 0}
-    - target: {fileID: 5708920785798016161, guid: 4bc7479fe264a2242be474767995966c, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 611132b167d2be04d8428dad93326ada, type: 2}
-    - target: {fileID: 8279668416646165076, guid: 4bc7479fe264a2242be474767995966c, type: 3}
-      propertyPath: duration
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 680107833489894739, guid: 4bc7479fe264a2242be474767995966c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1704900538}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc7479fe264a2242be474767995966c, type: 3}
 --- !u!1001 &1203204627
 PrefabInstance:
@@ -2894,33 +2883,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40190b10e0b347d478f5baea0d98653c, type: 3}
---- !u!1 &1704900522 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 680107833489894739, guid: 4bc7479fe264a2242be474767995966c, type: 3}
-  m_PrefabInstance: {fileID: 930537907}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1704900535 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5708920785798016161, guid: 4bc7479fe264a2242be474767995966c, type: 3}
-  m_PrefabInstance: {fileID: 930537907}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1704900538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704900522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10b8cd8071e3405299ef6a0904b1f939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 1704900535}
-  flashColor: {r: 1, g: 1, b: 1, a: 1}
-  flashTime: 0.25
-  iFrameFlashTime: 0.2
-  iFrameFlashIntensity: 0.6
 --- !u!1001 &1791836869
 PrefabInstance:
   m_ObjectHideFlags: 0
