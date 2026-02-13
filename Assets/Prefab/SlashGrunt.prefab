@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 611132b167d2be04d8428dad93326ada, type: 2}
     - target: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       propertyPath: m_Material
       value: 
@@ -212,6 +216,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4745726200468727337}
+    - targetCorrespondingSourceObject: {fileID: 5049859833238396877, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2097026562572308073}
   m_SourcePrefab: {fileID: 100100000, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
 --- !u!114 &1995954794627886128 stripped
 MonoBehaviour:
@@ -227,6 +234,11 @@ MonoBehaviour:
 --- !u!50 &2202841030365301422 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4423938813133608235, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
+  m_PrefabInstance: {fileID: 2591519046703783813}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2569386435097756090 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 26642879724494399, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
   m_PrefabInstance: {fileID: 2591519046703783813}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5136292991899515397 stripped
@@ -494,6 +506,23 @@ MonoBehaviour:
   onInvincibilityFinished:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2097026562572308073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7341527189696806984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b8cd8071e3405299ef6a0904b1f939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2569386435097756090}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  flashTime: 0.25
+  iFrameFlashTime: 0.2
+  iFrameFlashIntensity: 0.6
 --- !u!114 &8113567762717250946 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6012237552577317383, guid: a474d9e924b81014daa5ee5b57e7a42c, type: 3}
