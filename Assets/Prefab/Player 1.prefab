@@ -52,6 +52,7 @@ GameObject:
   - component: {fileID: 2223874813079029682}
   - component: {fileID: 7851016066246966166}
   - component: {fileID: 7215329336203716366}
+  - component: {fileID: 2219811461918891821}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -245,7 +246,7 @@ MonoBehaviour:
   onReceiveHeal:
     m_PersistentCalls:
       m_Calls: []
-  onTakeDamage:
+  OnTakeDamage:
     m_PersistentCalls:
       m_Calls: []
   onDamageFullyBlocked:
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 5058434829624851813}
   ability: {fileID: 11400000, guid: 48a950a693c96634dae1e87abaaddfc7, type: 2}
-  animatorController: {fileID: 9100000, guid: c90e6d1da2ff25542bc50103e66f44ec, type: 2}
+  ignoresInvincibility: 0
 --- !u!114 &7215329336203716366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +348,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SeleneAudio: {fileID: 11400000, guid: db0297279c44c9145937465e7772d1be, type: 2}
+--- !u!114 &2219811461918891821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954425652009324719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f60a7593de8e4bac8a9330457a2fc999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageable: {fileID: 7565136668790763696}
+  duration: 1
+  onInvincibilityStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onInvincibilityFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7665047327292384988
 GameObject:
   m_ObjectHideFlags: 0

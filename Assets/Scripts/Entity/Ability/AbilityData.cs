@@ -8,9 +8,6 @@ public class AbilityData : ScriptableObject
     public string Name;
     [SerializeReference] public List<AbilityEffect> Effects;
 
-    public AnimationClip animationClip;
-    public float CastTime = 0f;
-
     private void OnEnable()
     {
         if (string.IsNullOrEmpty(Name))
