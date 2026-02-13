@@ -5,6 +5,7 @@ using UnityEngine;
 public class SlashGruntMovementPattern : EnemyMovementPattern
 {
     [SerializeField] private EntityEvent eventHandler;
+    [SerializeField] private EntityEvent attackEvent;
     
     [SerializeReference] public DirectionChangeOnImpactPattern directionChangeOnImpactPattern;
     [Tooltip("The base movement used when not in aggro")]
@@ -76,6 +77,10 @@ public class SlashGruntMovementPattern : EnemyMovementPattern
             if (!collider2D.OverlapPoint(aggroPattern.AggroTarget))
             {
                 aggroMovement.Execute(movement, hostileLayers, groundCheck);
+            } 
+            else if (!_hasAttacked)
+            {
+                
             }
             else
             {

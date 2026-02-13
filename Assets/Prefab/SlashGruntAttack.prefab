@@ -24,6 +24,30 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5943396
       objectReference: {fileID: 0}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: 'patterns.Array.data[0]'
+      value: 5420340839466401874
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: 'managedReferences[5420340839466401874]'
+      value: Assembly-CSharp ExplosionAttackPattern
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: managedReferences[5420340839466401874].self
+      value: 
+      objectReference: {fileID: 1851579197966054880}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: managedReferences[5420340839466401874].holdTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: managedReferences[5420340839466401874].targetSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435730388782018083, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+      propertyPath: managedReferences[5420340839466401874].timeToReachTargetSize
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8089655294829808397, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
       propertyPath: m_LocalScale.x
       value: 11.52
@@ -81,3 +105,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+--- !u!1 &1851579197966054880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1722110818328487050, guid: 455a954ee48bae64996f764ffdbbce48, type: 3}
+  m_PrefabInstance: {fileID: 1032463212053221738}
+  m_PrefabAsset: {fileID: 0}
